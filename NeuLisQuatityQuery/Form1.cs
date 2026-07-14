@@ -492,7 +492,7 @@ namespace NeuLisQuatityQuery
                 this.bandedGridView1.RefreshData();
                 this.bandedGridView1.BestFitColumns();
 
-                #region 添加标本拒收率、危急值报告时间中位数  Created By 徐振宇 
+                #region 添加标本拒收率、危急值报告时间中位数  Created By 徐振宇  2026年7月14日16:13:28
                 List<Model.QuaShowData> totalRejectRate = NeuLis.DataBase.OperDB.GetTotalRejectRate(begDate);
                 if (totalRejectRate != null && totalRejectRate.Count > 0)
                 {
@@ -502,7 +502,7 @@ namespace NeuLisQuatityQuery
             }
             #endregion
 
-            #region 2.选中tab页第二页渲染的数据
+            #region 2.选中tab页第二页渲染的数据 Created By 徐振宇 2026年7月14日18:02:31
             if (this.xtraTabControl1.SelectedTabPageIndex == 1)
             {
                 #region
@@ -520,18 +520,18 @@ namespace NeuLisQuatityQuery
 
                 this.labelControl2.Text = this.begData1.Text;
 
-                #region 检验前数据统计
+                #region 1. 检验前数据统计
                 //不分类查询周转时间
-                List<Model.AroundMonthData> aroundData = NeuLis.DataBase.OperDB.GetAroundJYQ(year);
+                List<Model.AroundMonthData> aroundData = NeuLis.DataBase.OperDB.GetAroundJYQ(year);  // 获取指定年份所有标本的周转时间中位数（不分患者类型、不分检验类别） 每个月份一个记录，包含12个月的中位数数据
                 //分类查询周转时间
-                List<Model.AroundMonthData> aroundTypeDate = NeuLis.DataBase.OperDB.GetAroundJYQbyType(year);
-                List<Model.QuaShowData> alshowData = new List<Model.QuaShowData>();
+                List<Model.AroundMonthData> aroundTypeDate = NeuLis.DataBase.OperDB.GetAroundJYQbyType(year); // 获取按检验类别（如抗凝标本类、生化类等）细分的周转时间数据
+                List<Model.QuaShowData> alshowData = new List<Model.QuaShowData>(); // list集合的数据
                 Model.QuaShowData showData = new Model.QuaShowData();
                 typeID = "1检验前周转时间中位数";
                 typeName = "标本采集到实验室接收时间中位数";
                 showData = this.getAroundSap(aroundData, "加急", typeID, typeName);
                 alshowData.Add(showData);
-                List<NeuLis.Models.Model.typeclass> alTypeList = NeuLis.DataBase.OperDB.getTypeList("周转时间类");
+                List<NeuLis.Models.Model.typeclass> alTypeList = NeuLis.DataBase.OperDB.getTypeList("周转时间类"); //获取时间周转 如;1	2001	抗凝标本类	抗凝标本类
                 foreach (NeuLis.Models.Model.typeclass obj in alTypeList)
                 {
                     showData = new Model.QuaShowData();
@@ -561,8 +561,9 @@ namespace NeuLisQuatityQuery
                     showData = this.getAroundSap(aroundTypeDate1, "住院", typeID, typeName, obj.typeName);
                     alshowData.Add(showData);
                 }
+
                 #endregion
-                #region 室内中位数统计
+                #region 2. 室内中位数统计
                 typeID = "2室内周转时间中位数";
                 typeName = "实验室接收时间到审核时间中位数";
                 //不分类查询周转时间
@@ -604,8 +605,7 @@ namespace NeuLisQuatityQuery
                     alshowData.Add(showData);
                 }
                 #endregion
-
-                #region 检验前数据统计,90分数
+                #region 3.检验前数据统计,90分数
                 //不分类查询周转时间
                 aroundData = NeuLis.DataBase.OperDB.GetAroundJYQ90(year);
                 //分类查询周转时间
@@ -647,7 +647,7 @@ namespace NeuLisQuatityQuery
                     alshowData.Add(showData);
                 }
                 #endregion
-                #region 室内中位数统计
+                #region 4.室内中位数统计
                 typeID = "4室内周转时间90位数";
                 typeName = "实验室接收时间到审核时间90位数";
                 //不分类查询周转时间
@@ -689,7 +689,13 @@ namespace NeuLisQuatityQuery
                     alshowData.Add(showData);
                 }
                 #endregion
-
+                #region 5.插入检验总周转时间 Created By 徐振宇 2026年7月14日19:01:07
+                List<Model.QuaShowData> totalRejectRate = NeuLis.DataBase.OperDB.GetTATP90(this.begData1.Text);
+                if (totalRejectRate != null && totalRejectRate.Count > 0)
+                {
+                    alshowData.AddRange(totalRejectRate);
+                }
+                #endregion
                 this.gridControl2.DataSource = alshowData;
                 this.bandedGridView2.RefreshData();
                 this.bandedGridView2.BestFitColumns();

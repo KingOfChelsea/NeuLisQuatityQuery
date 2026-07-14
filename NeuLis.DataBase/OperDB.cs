@@ -780,7 +780,7 @@ namespace NeuLis.DataBase
         /// <summary>
         /// 检验前中位数，分检验类别
         /// </summary>
-        /// <param name="year"></param>
+        /// <param name="year">年份参数：如2026、2025</param>
         /// <returns></returns>
         public static List<Models.Model.AroundMonthData> GetAroundJYQbyType(string year)
         {
@@ -1088,7 +1088,7 @@ namespace NeuLis.DataBase
         /// <returns></returns>
         public static List<Models.Model.typeclass> getTypeList(string classtype)
         {
-            List<Models.Model.typeclass> typeList = new List<Models.Model.typeclass>();
+            List<Models.Model.typeclass> typeList = new List<Models.Model.typeclass>(); 
             string strSql = $@"select typeid,typename from las_stat_itemtype where classtype='{classtype}'";
             typeList = OracleHelp.QueryListByEmit<Models.Model.typeclass>(strSql);
             return typeList;
@@ -1456,52 +1456,17 @@ namespace NeuLis.DataBase
         public static List<Models.Model.QuaShowData> GetTotalRejectRate(string begDate)
         {
             List<Models.Model.QuaShowData> result = new List<Models.Model.QuaShowData>();
-
-            string strSql = $@"
-        WITH SAMPLE_DATA AS (
-            SELECT 
-                TO_CHAR(APPROVETIME, 'mm') AS MONTH,
-                COUNT(DISTINCT barcode) AS TOTAL_SAMPLE
-            FROM view_las_sap_samplereg
-            WHERE TO_CHAR(APPROVETIME, 'yyyy') >= '{begDate}'
-            GROUP BY TO_CHAR(APPROVETIME, 'mm')
-        ),
-        REJECT_DATA AS (
-            SELECT 
-                SUBSTR(t2.regdate, 5, 2) AS MONTH,
-                COUNT(DISTINCT t2.barcode) AS TOTAL_REJECT
-            FROM las_sap_samplereject t2
-            WHERE SUBSTR(t2.regdate, 1, 4) >= '{begDate}'
-              AND t2.reason IN (
-                  SELECT nvl(a.memo3, a.dicname)
-                  FROM las_sys_dictionary a
-                  WHERE a.typeid = 'SampleRejectReason'
-                    AND a.dicname IS NOT NULL
-                    AND a.isshow = '1'
-              )
-            GROUP BY SUBSTR(t2.regdate, 5, 2)
-        )
-        SELECT 
-            '5:总拒收率' AS TYPEID,
-            '标本总拒收率(%)' AS TYPENAME,
-            '≤' AS TYPEFX,
-            '0.05' AS TYPEMB,
-            MAX(CASE WHEN S.MONTH = '01' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS JAN,
-            MAX(CASE WHEN S.MONTH = '02' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS FEB,
-            MAX(CASE WHEN S.MONTH = '03' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS MAR,
-            MAX(CASE WHEN S.MONTH = '04' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS APR,
-            MAX(CASE WHEN S.MONTH = '05' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS MAY,
-            MAX(CASE WHEN S.MONTH = '06' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS JUN,
-            MAX(CASE WHEN S.MONTH = '07' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS JUL,
-            MAX(CASE WHEN S.MONTH = '08' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS AUG,
-            MAX(CASE WHEN S.MONTH = '09' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS SEP,
-            MAX(CASE WHEN S.MONTH = '10' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS OCT,
-            MAX(CASE WHEN S.MONTH = '11' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS NOV,
-            MAX(CASE WHEN S.MONTH = '12' THEN ROUND(NVL(R.TOTAL_REJECT, 0) / NULLIF(S.TOTAL_SAMPLE, 0) * 100, 2) END) AS DEC,
-            ROUND(SUM(NVL(R.TOTAL_REJECT, 0)) / NULLIF(SUM(S.TOTAL_SAMPLE), 0) * 100, 2) AS QST
-        FROM SAMPLE_DATA S
-        LEFT JOIN REJECT_DATA R ON S.MONTH = R.MONTH
-    ";
+           
+            string strSql = $@"SELECT 
+                                        TYPEID,
+                                        TYPENAME,
+                                        TYPEFX,
+                                        TYPEMB,
+                                        JAN, FEB, MAR, APR, MAY, JUN,
+                                        JUL, AUG, SEP, OCT, NOV, DEC,
+                                        QST
+                                    FROM V_LAS_SAMPLE_REJECT_RATE
+                                    WHERE YEAR = '{begDate}'";
 
             // 改用 QueryListByReflect
             result = OracleHelp.QueryListByReflect<Models.Model.QuaShowData>(strSql);
@@ -1509,7 +1474,7 @@ namespace NeuLis.DataBase
         }
 
         /// <summary>
-        /// 查询标本总拒收率的明细数据
+        /// 查询标本总拒收率的明细数据 Created By 徐振宇 2026年7月14日18:29:16
         /// </summary>
         /// <param name="month">传入年月，比如202601、202602、202603</param>
         /// <returns>样本明细</returns>
@@ -1531,6 +1496,36 @@ namespace NeuLis.DataBase
                         ";
             alSapRej = OracleHelp.QueryListByEmit<Models.Model.sampleReject>(strSql);
             return alSapRej;
+        }
+
+        /// <summary>
+        /// 获取TAT第90百分位数据 Created By 徐振宇 2026年7月14日18:29:16
+        /// </summary>
+        /// <remarks>
+        /// 从V_LAS_TAT_P90视图中查询指定年份的TAT（Turnaround Time，周转时间）P90数据，
+        /// 包括各月份监控结果和全年合计值。
+        /// </remarks>
+        /// <param name="begDate">查询年份，格式为"YYYY"，例如："2026"</param>
+        public static List<Models.Model.QuaShowData> GetTATP90(string begDate)
+        {
+            List<Models.Model.QuaShowData> result = new List<Models.Model.QuaShowData>();
+
+            string strSql = $@"SELECT 
+PATIENTTYPE，
+                                TYPEID,
+TYPECLASS，
+                                TYPENAME,
+                                TYPEFX,
+                                TYPEMB,
+                                JAN, FEB, MAR, APR, MAY, JUN,
+                                JUL, AUG, SEP, OCT, NOV, DEC,
+                                QST
+                            FROM V_LAS_TAT_P90
+                            WHERE YEAR = '{begDate}'";
+
+            // 使用反射方式查询，自动映射到QuaShowData实体类
+            result = OracleHelp.QueryListByReflect<Models.Model.QuaShowData>(strSql);
+            return result;
         }
     }
 }

@@ -118,11 +118,11 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuat
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmSysConfig.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.Properties.Resources.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.GenerateResource.cache
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe.licenses
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.CoreCompileInputs.cache
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.exe
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.CopyComplete
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe.licenses
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csprojAssemblyReference.cache
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.CopyComplete
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.pdb
