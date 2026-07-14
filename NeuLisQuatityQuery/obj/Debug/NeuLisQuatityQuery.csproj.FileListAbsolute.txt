@@ -105,7 +105,6 @@ D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery
 D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmQualityConfig.resources
 D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmQualityList.resources
 D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmSysConfig.resources
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csprojAssemblyReference.cache
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.Form1.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmConfig.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmHisItemType.resources
@@ -126,3 +125,4 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.exe
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.pdb
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe.licenses
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csprojAssemblyReference.cache

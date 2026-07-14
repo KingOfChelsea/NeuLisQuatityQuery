@@ -2017,84 +2017,63 @@ namespace NeuLisQuatityQuery
             this.Close();
         }
         /// <summary>
-        /// 双击查询对应的列表
+        /// 双击单元格传入数据进入表格展示数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void bandedGridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.bandedGridView1.RowCount <= 0)
-                return;
-            GridHitInfo HitInfo = bandedGridView1.CalcHitInfo(e.Location);//获取鼠标点击的位置
-            NeuLis.Models.NeulisDictionary dic = new NeuLis.Models.NeulisDictionary();
-            if (HitInfo.InRowCell && HitInfo.Column != null && e.Button == MouseButtons.Left && e.Clicks == 2)
+            try
             {
-                Model.QuaShowData showData = (Model.QuaShowData)this.bandedGridView1.GetFocusedRow();
-                if(showData.Typename.IndexOf("危急值")>=0)
-                {
-                    string typeid = showData.TypeID;
-                    string typename = showData.Typename;
-                    string month = HitInfo.Column.FieldName;
+                // 1. 安全检查：表格是否有数据
+                if (this.bandedGridView1.RowCount <= 0)
+                    return;
 
-                    frmQueryList frm = new frmQueryList();
-                    frm.typeid = typeid;
-                    frm.typename = typename;
-                    frm.month = this.labelControl4.Text + dic.montDic[month];
-                    frm.kind = "危急值";
-                    frm.ShowDialog();
-                }
-                else if(showData.TypeID.IndexOf("检验报告不正确") >= 0)
-                {
-                    string typeid = showData.TypeID;
-                    string typename = showData.Typename;
-                    string month = HitInfo.Column.FieldName;
+                // 2. 获取鼠标点击位置
+                GridHitInfo HitInfo = bandedGridView1.CalcHitInfo(e.Location);
 
-                    frmQueryList frm = new frmQueryList();
-                    frm.typeid = typeid;
-                    frm.typename = typename;
-                    frm.month = this.labelControl4.Text + dic.montDic[month];
-                    frm.kind = "检验报告不正确";
-                    frm.ShowDialog();
-                }
-                else if(showData.TypeID.IndexOf("血培养污染") >= 0)
-                {
-                    string typeid = showData.TypeID;
-                    string typename = showData.Typename;
-                    string month = HitInfo.Column.FieldName;
+                // 3. 校验：必须是双击单元格
+                if (!HitInfo.InRowCell || HitInfo.Column == null || e.Button != MouseButtons.Left || e.Clicks != 2)
+                    return;
 
-                    frmQueryList frm = new frmQueryList();
-                    frm.typename = typename;
-                    frm.month = this.labelControl4.Text + dic.montDic[month];
-                    frm.kind = "血培养";
-                    frm.ShowDialog();
-                }
-                else if (showData.TypeID.IndexOf("质控项目变异系数") >= 0)
-                {
-                    string typeid = showData.TypeID;
-                    string typename = showData.Typename;
-                    string month = HitInfo.Column.FieldName;
+                // 4. 获取行数据，并做空值判断
+                Model.QuaShowData showData = this.bandedGridView1.GetFocusedRow() as Model.QuaShowData;
+                if (showData == null)
+                    return;
 
-                    frmQueryList frm = new frmQueryList();
-                    frm.typename = typename;
-                    frm.month = this.labelControl4.Text + dic.montDic[month];
-                    frm.kind = "质控";
-                    frm.ShowDialog();
-                }
-                else
-                {
-                    string typeid = showData.TypeID;
-                    string typename = showData.Typename;
-                    string month = HitInfo.Column.FieldName;
-                    
-                    frmQueryList frm = new frmQueryList();
-                    frm.typeid = typeid;
-                    frm.typename = typename;
-                    frm.month = this.labelControl4.Text + dic.montDic[month];
-                    frm.kind = "不合格";
-                    frm.ShowDialog();
-                }
+                NeuLis.Models.NeulisDictionary dic = new NeuLis.Models.NeulisDictionary();
+
+                // 5. 判断指标类型
+                string kind = "不合格";
+                if (showData.Typename != null && showData.Typename.IndexOf("危急值") >= 0)
+                    kind = "危急值";
+                else if (showData.TypeID != null && showData.TypeID.IndexOf("检验报告不正确") >= 0)
+                    kind = "检验报告不正确";
+                else if (showData.TypeID != null && showData.TypeID.IndexOf("血培养污染") >= 0)
+                    kind = "血培养";
+                else if (showData.TypeID != null && showData.TypeID.IndexOf("质控项目变异系数") >= 0)
+                    kind = "质控";
+                else if (showData.TypeID != null && showData.TypeID.IndexOf("总拒收率") >= 0)
+                    kind = "总拒收率";
+
+                // 6. 安全获取月份值
+                string columnName = HitInfo.Column.FieldName;
+                if (!dic.montDic.ContainsKey(columnName))
+                    return;
+
+                // 7. 打开明细查询窗体
+                frmQueryList frm = new frmQueryList();
+                frm.typeid = showData.TypeID;
+                frm.typename = showData.Typename;
+                frm.month = this.labelControl4.Text + dic.montDic[columnName];
+                frm.kind = kind;
+                frm.ShowDialog();
             }
-
+            catch (Exception ex)
+            {
+                // 捕获所有异常，防止程序崩溃
+                MessageBox.Show($"操作失败：{ex.Message}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         /// <summary>
         /// 周转时间查询清单

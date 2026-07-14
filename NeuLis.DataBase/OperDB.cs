@@ -1507,5 +1507,30 @@ namespace NeuLis.DataBase
             result = OracleHelp.QueryListByReflect<Models.Model.QuaShowData>(strSql);
             return result;
         }
+
+        /// <summary>
+        /// 查询标本总拒收率的明细数据
+        /// </summary>
+        /// <param name="month">传入年月，比如202601、202602、202603</param>
+        /// <returns>样本明细</returns>
+        public List<Models.Model.sampleReject> GetTotalRejectDetail(string month)
+        {
+            List<Models.Model.sampleReject> alSapRej = new List<Models.Model.sampleReject>();
+            string strSql = $@"
+                            select a.regdate, a.barcode, a.patientid, a.patientname, a.sampletype, a.hisitemnamelist, a.reason, a.opername
+                            from las_sap_samplereject a
+                            where substr(a.regdate, 1, 6) = '{month}'
+                              and a.reason in (
+                                  select nvl(b.memo3, b.dicname)
+                                  from las_sys_dictionary b
+                                  where b.typeid = 'SampleRejectReason'
+                                    and b.dicname is not null
+                                    and b.isshow = '1'
+                              )
+                            order by a.regdate desc
+                        ";
+            alSapRej = OracleHelp.QueryListByEmit<Models.Model.sampleReject>(strSql);
+            return alSapRej;
+        }
     }
 }
