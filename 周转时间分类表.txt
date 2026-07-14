@@ -1,0 +1,83 @@
+-----------------------------LAS_STAT_ITEMCONFIG-----------------
+-- Create table
+create table LAS_STAT_ITEMCONFIG
+(
+  hisitemid   VARCHAR2(20) not null,
+  hisitemname VARCHAR2(150),
+  typeid      VARCHAR2(50),
+  typename    VARCHAR2(50)
+)
+tablespace WINLIS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 8
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column LAS_STAT_ITEMCONFIG.hisitemid
+  is '项目编码';
+comment on column LAS_STAT_ITEMCONFIG.hisitemname
+  is '项目名称';
+comment on column LAS_STAT_ITEMCONFIG.typeid
+  is '项目类别ID';
+comment on column LAS_STAT_ITEMCONFIG.typename
+  is '项目类别';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table LAS_STAT_ITEMCONFIG
+  add constraint PK_LAS_STAT_ITEMCOFIG primary key (HISITEMID)
+  using index 
+  tablespace WINLIS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+------------------------------LAS_STAT_ITEMTYPE-----------------
+
+-- Create table
+create table LAS_STAT_ITEMTYPE
+(
+  typeid   VARCHAR2(20) not null,
+  typename VARCHAR2(50)
+)
+tablespace WINLIS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column LAS_STAT_ITEMTYPE.typeid
+  is '项目类别';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table LAS_STAT_ITEMTYPE
+  add constraint PK_STAT_ITEMTYPE primary key (TYPEID)
+  using index 
+  tablespace WINLIS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );

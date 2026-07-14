@@ -1,0 +1,14 @@
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\lib\NeuLis.Models.dll
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\lib\NeuLis.Models.pdb
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csprojAssemblyReference.cache
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CoreCompileInputs.cache
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.dll
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.pdb
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.dll.licenses
+D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CopyComplete
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.Models.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.Models.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CoreCompileInputs.cache
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CopyComplete
