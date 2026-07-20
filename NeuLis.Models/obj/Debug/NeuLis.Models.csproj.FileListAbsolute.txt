@@ -8,8 +8,8 @@ D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery
 D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.Models.dll
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.Models.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csprojAssemblyReference.cache
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CoreCompileInputs.cache
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.dll
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csprojAssemblyReference.cache

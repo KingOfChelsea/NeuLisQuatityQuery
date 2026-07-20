@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
@@ -84,6 +84,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.begDate = new System.Windows.Forms.DateTimePicker();
             this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,9 +93,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.begDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -167,13 +167,13 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.bandedGridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(972, 550);
+            this.gridControl1.Size = new System.Drawing.Size(1199, 589);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridView1,
@@ -648,30 +648,39 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1228, 654);
+            this.splitContainer1.Size = new System.Drawing.Size(1199, 654);
             this.splitContainer1.SplitterDistance = 61;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
             // 
-            //this.groupBox1.Controls.Add(this.lookUpEdit3);
-            //this.groupBox1.Controls.Add(this.labelControl5);
-            //this.groupBox1.Controls.Add(this.label5);
-            //this.groupBox1.Controls.Add(this.labelControl4);
-            //this.groupBox1.Controls.Add(this.label4);
-            //this.groupBox1.Controls.Add(this.lookUpEdit2);
-            //this.groupBox1.Controls.Add(this.labelControl3);
             this.groupBox1.Controls.Add(this.label1);
-            //this.groupBox1.Controls.Add(this.lookUpEdit1);
             this.groupBox1.Controls.Add(this.begDate);
-            //this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1228, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1199, 61);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "查询年份：";
+            // 
+            // begDate
+            // 
+            this.begDate.CustomFormat = "yyyy";
+            this.begDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.begDate.Location = new System.Drawing.Point(75, 18);
+            this.begDate.Name = "begDate";
+            this.begDate.Size = new System.Drawing.Size(175, 22);
+            this.begDate.TabIndex = 1;
             // 
             // lookUpEdit3
             // 
@@ -742,15 +751,6 @@
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "统计年份：";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "查询年份：";
-            // 
             // lookUpEdit1
             // 
             this.lookUpEdit1.Location = new System.Drawing.Point(356, 18);
@@ -764,15 +764,6 @@
             this.lookUpEdit1.Properties.NullText = "";
             this.lookUpEdit1.Size = new System.Drawing.Size(279, 20);
             this.lookUpEdit1.TabIndex = 3;
-            // 
-            // begDate
-            // 
-            this.begDate.CustomFormat = "yyyy";
-            this.begDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.begDate.Location = new System.Drawing.Point(75, 18);
-            this.begDate.Name = "begDate";
-            this.begDate.Size = new System.Drawing.Size(175, 22);
-            this.begDate.TabIndex = 1;
             // 
             // label3
             // 
@@ -814,9 +805,8 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainer3.Size = new System.Drawing.Size(1228, 654);
-            this.splitContainer3.SplitterDistance = 0;
+            this.splitContainer3.SplitterDistance = 25;
             this.splitContainer3.TabIndex = 6;
-          //  this.splitContainer3.Panel2.Visible = false;
             // 
             // xtraTabPage2
             // 
@@ -1183,7 +1173,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "年度质量指标统计";
+            this.Text = "LIS年度质量指标统计";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

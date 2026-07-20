@@ -15,6 +15,7 @@ using DevExpress.XtraExport;
 using DevExpress.Export;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraTreeList.Nodes;
+using NeuLis.MedicalIconsLibrary;
 
 namespace NeuLisQuatityQuery
 {
@@ -25,7 +26,14 @@ namespace NeuLisQuatityQuery
         /// </summary>
         public Form1()
         {
+           
             InitializeComponent();
+            Image iconImage = IconManager.Instance.GetIcon("Medical", "bingchuang");
+            if (iconImage != null)
+            {
+                // 将Image转换为Icon
+                this.Icon = Icon.FromHandle(((Bitmap)iconImage).GetHicon());
+            }
         }
 
         /// <summary>
@@ -468,37 +476,47 @@ namespace NeuLisQuatityQuery
                     alshowData.Add(rateData);
                     #endregion
                 }
-                #region 查询错误报告单
+
+                #region 1.1查询错误报告单
                 List<Model.QuaShowData> errCount = this.getErrNum(begDate);
                 alshowData.AddRange(errCount);
                 #endregion 
 
-                #region 统计危急值数量
+                #region 1.2统计危急值数量
                 List< Model.QuaShowData> alterCount = this.getAlterNum(begDate);
                 alshowData.AddRange(alterCount);
                 #endregion
                 
-                #region 血培养污染
+                #region 1.3血培养污染
                 List<Model.QuaShowData> XPYCount = this.getXPYNum(begDate);
                 alshowData.AddRange(XPYCount);
                 #endregion 
 
-                #region 质控变异系数不合格
+                #region 1.4质控变异系数不合格
                 List<Model.QuaShowData> QCCount = this.getQCOverNum(begDate);
                 alshowData.AddRange(QCCount);
                 #endregion 
 
-                this.gridControl1.DataSource = alshowData;
-                this.bandedGridView1.RefreshData();
-                this.bandedGridView1.BestFitColumns();
-
-                #region 添加标本拒收率、危急值报告时间中位数  Created By 徐振宇  2026年7月14日16:13:28
+                #region 1.5添加标本拒收率、危急值报告时间中位数  Created By 徐振宇  2026年7月14日16:13:28
                 List<Model.QuaShowData> totalRejectRate = NeuLis.DataBase.OperDB.GetTotalRejectRate(begDate);
                 if (totalRejectRate != null && totalRejectRate.Count > 0)
                 {
                     alshowData.AddRange(totalRejectRate);
                 }
                 #endregion
+
+                #region 1.6 危急值报告时间中位数 Created By 徐振宇 2026年7月15日10:46:16
+                List<Model.QuaShowData> totalCrisisReportTimeMedian = NeuLis.DataBase.OperDB.GetCrisisReportTimeMedian(begDate);
+                if (totalCrisisReportTimeMedian != null && totalCrisisReportTimeMedian.Count > 0)
+                {
+                    alshowData.AddRange(totalCrisisReportTimeMedian);
+                }
+                #endregion
+
+                // 数据渲染必须要放在最后面
+                this.gridControl1.DataSource = alshowData;
+                this.bandedGridView1.RefreshData();
+                this.bandedGridView1.BestFitColumns();
             }
             #endregion
 
@@ -701,8 +719,6 @@ namespace NeuLisQuatityQuery
                 this.bandedGridView2.BestFitColumns();
             }
             #endregion
-
-
         }
         /// <summary>
         /// 获取危急值数量
@@ -1993,8 +2009,7 @@ namespace NeuLisQuatityQuery
                 }
             }
             catch (Exception ex)
-            {
-                
+            {                
                 XtraMessageBox.Show("导出失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -2023,7 +2038,7 @@ namespace NeuLisQuatityQuery
             this.Close();
         }
         /// <summary>
-        /// 双击单元格传入数据进入表格展示数据
+        /// 双击单元格传入数据进入表格展示数据 Added By 徐振宇 2026年7月14日19:41:30
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -2051,16 +2066,34 @@ namespace NeuLisQuatityQuery
 
                 // 5. 判断指标类型
                 string kind = "不合格";
-                if (showData.Typename != null && showData.Typename.IndexOf("危急值") >= 0)
+                string patientType = "";
+
+                // 优先判断更精确的条件
+                if (showData.Typename != null && showData.Typename.IndexOf("危急值报告时间中位数") >= 0)
+                {
+                    kind = "危急值报告时间中位数";
+                    patientType = showData.PatientType;
+                }
+                else if (showData.Typename != null && showData.Typename.IndexOf("危急值") >= 0)
+                {
                     kind = "危急值";
+                }
                 else if (showData.TypeID != null && showData.TypeID.IndexOf("检验报告不正确") >= 0)
+                {
                     kind = "检验报告不正确";
+                }
                 else if (showData.TypeID != null && showData.TypeID.IndexOf("血培养污染") >= 0)
+                {
                     kind = "血培养";
+                }
                 else if (showData.TypeID != null && showData.TypeID.IndexOf("质控项目变异系数") >= 0)
+                {
                     kind = "质控";
+                }
                 else if (showData.TypeID != null && showData.TypeID.IndexOf("总拒收率") >= 0)
+                {
                     kind = "总拒收率";
+                }
 
                 // 6. 安全获取月份值
                 string columnName = HitInfo.Column.FieldName;
@@ -2073,6 +2106,8 @@ namespace NeuLisQuatityQuery
                 frm.typename = showData.Typename;
                 frm.month = this.labelControl4.Text + dic.montDic[columnName];
                 frm.kind = kind;
+                frm.patienttype = patientType;
+                frm.WindowState = FormWindowState.Maximized; //最大化
                 frm.ShowDialog();
             }
             catch (Exception ex)
@@ -2088,29 +2123,43 @@ namespace NeuLisQuatityQuery
         /// <param name="e"></param>
         private void bandedGridView2_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.bandedGridView2.RowCount <= 0)
-                return;
-            GridHitInfo HitInfo = bandedGridView2.CalcHitInfo(e.Location);//获取鼠标点击的位置
-            NeuLis.Models.NeulisDictionary dic = new NeuLis.Models.NeulisDictionary();
-            if (HitInfo.InRowCell && HitInfo.Column != null && e.Button == MouseButtons.Left && e.Clicks == 2)
+            try
             {
-                Model.QuaShowData showData = (Model.QuaShowData)this.bandedGridView2.GetFocusedRow();
-              
-                string typename = showData.Typename;
-                string month = HitInfo.Column.FieldName;
-                string typeid = showData.TypeID;//指标类型
-                string patienttype = showData.PatientType;//患者类型
-                string typeclass = showData.typeClass;//项目类别，如生化，三大常规等。
+                if (this.bandedGridView2.RowCount <= 0)
+                    return;
+                GridHitInfo HitInfo = bandedGridView2.CalcHitInfo(e.Location);//获取鼠标点击的位置
+                NeuLis.Models.NeulisDictionary dic = new NeuLis.Models.NeulisDictionary();
+                if (HitInfo.InRowCell && HitInfo.Column != null && e.Button == MouseButtons.Left && e.Clicks == 2)
+                {
+                    Model.QuaShowData showData = (Model.QuaShowData)this.bandedGridView2.GetFocusedRow();
 
-                frmQueryList frm = new frmQueryList();
-                frm.typeid = typeid;
-                frm.typename = typename;
-                frm.patienttype = patienttype;
-                frm.typeclass = typeclass;
-                frm.month = this.labelControl2.Text + dic.montDic[month];
-                frm.kind = "TAT";
-                frm.ShowDialog();
+                    string typename = showData.Typename;
+                    string month = HitInfo.Column.FieldName;
+                    string typeid = showData.TypeID;//指标类型
+                    string patienttype = showData.PatientType;//患者类型
+                    string typeclass = showData.typeClass;//项目类别，如生化，三大常规等。
+
+                    string kind = "TAT";
+                    if (!string.IsNullOrEmpty(typeid) && typeid.IndexOf("TAT_P90") >= 0)
+                    {
+                        kind = "TAT_P90";
+                    }
+
+                    frmQueryList frm = new frmQueryList();
+                    frm.typeid = typeid;
+                    frm.typename = typename;
+                    frm.patienttype = patienttype;
+                    frm.typeclass = typeclass;
+                    frm.month = this.labelControl2.Text + dic.montDic[month];
+                    frm.kind = kind;
+                    frm.ShowDialog();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"操作失败：{ex.Message}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
         }
         /// <summary>
         /// 树形结构加载仪器列表

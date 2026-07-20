@@ -1511,9 +1511,9 @@ namespace NeuLis.DataBase
             List<Models.Model.QuaShowData> result = new List<Models.Model.QuaShowData>();
 
             string strSql = $@"SELECT 
-PATIENTTYPE，
+                                PATIENTTYPE，
                                 TYPEID,
-TYPECLASS，
+                                TYPECLASS，
                                 TYPENAME,
                                 TYPEFX,
                                 TYPEMB,
@@ -1526,6 +1526,197 @@ TYPECLASS，
             // 使用反射方式查询，自动映射到QuaShowData实体类
             result = OracleHelp.QueryListByReflect<Models.Model.QuaShowData>(strSql);
             return result;
+        }
+
+        /// <summary>
+        /// 获取TAT第90百分位明细数据 Created By 徐振宇 2026年7月14日19:59:37
+        /// </summary>
+        /// <param name="month">查询月份，格式为"yyyyMM"，例如："202601"</param>
+        /// <returns>返回明细数据DataTable</returns>
+        public DataTable GetTATP90Detail(string month)
+        {
+            string strSql = $@"
+                    SELECT 
+                        t.machineid AS 仪器编号,
+                        t.sampleid AS 样本号,
+                        t.barcode AS 条码号,
+                        t.patientid AS 患者编码,
+                        t.patientname AS 患者姓名,
+                        t.patientsex AS 患者性别,
+                        t.patientage AS 患者年龄,
+                        t.deptname AS 开立科室,
+                        t.execdeptname AS 执行科室,
+                        t.wardname AS 病区名称,
+                        t.sampletype AS 样本类型,
+                        t.hisitemnamelist AS 检验项目名称,
+                        t.hisitemidlist AS 检验项目编码,
+                        t.sampletime AS 采集时间,
+                        t.APPROVETIME as 审核时间,
+                        ROUND((t.APPROVETIME - t.sampletime) * 24 * 60, 1) AS 周转时间_分钟,
+                        t.approvername AS 审核人,
+                        t.confirmstate AS 审核状态,
+                        t.alertstate AS 危急值状态,
+                        t.emc AS 急诊标识,
+                        t.testdate AS 检验日期
+                    FROM view_las_sap_samplereg t
+                    WHERE 1=1
+                      AND t.patientid IS NOT NULL
+                      AND t.ACCEPTTIME IS NOT NULL
+                      AND t.sampletime IS NOT NULL
+                      AND t.ACCEPTTIME > t.sampletime
+                      AND substr(t.testdate, 1, 6) = '{month}'
+                      AND t.sampletime > DATE '1900-01-01' 
+                    ORDER BY t.machineid, t.sampletime";
+
+            DataTable dt = OracleHelp.Query(strSql);
+            return dt;
+        }
+
+        /// <summary>
+        /// 获取危急值报告时间中位数 Created By 徐振宇 2026年7月15日10:39:48
+        /// </summary>
+        /// <remarks>
+        /// 从V_CRISIS_REPORT_TIME_MONTHLY视图中查询指定年份的危急值报告时间中位数数据，
+        /// 分别统计门诊、住院、急诊的危急值报告时间中位数。
+        /// 危急值报告时间 = 检验科确认危急值时间到临床医生接收危急值时间
+        /// </remarks>
+        /// <param name="begDate">查询年份，格式为"YYYY"，例如："2026"</param>
+        /// <returns>
+        /// 返回 QuaShowData 对象列表，包含：
+        /// PATIENTTYPE - 患者类型（门诊/住院/急诊）
+        /// TYPEID - 指标类型编号
+        /// TYPECLASS - 指标分类
+        /// TYPENAME - 指标名称
+        /// TYPEFX - 方向
+        /// TYPEMB - 目标值
+        /// JAN~DEC - 1月至12月的月度数据
+        /// QST - 全年合计值
+        /// </returns>
+        public static List<Models.Model.QuaShowData> GetCrisisReportTimeMedian(string begDate)
+        {
+            List<Models.Model.QuaShowData> result = new List<Models.Model.QuaShowData>();
+
+            string strSql = $@"SELECT 
+                              a.PATIENTTYPE,
+                              a.TYPEID,
+                              a.TYPENAME,
+                              a.TYPEFX,
+                              a.TYPEMB,
+                              a.JAN,
+                              a.FEB,
+                              a.MAR,
+                              a.APR,
+                              a.MAY,
+                              a.JUN,
+                              a.JUL,
+                              a.AUG,
+                              a.SEP,
+                              a.OCT,
+                              a.NOV,
+                              a.DEC,
+                              a.QST
+                         FROM V_CRISIS_REPORT_TIME_MONTHLY a
+                        WHERE a.YEAR = '{begDate}'
+                        ORDER BY a.PATIENTTYPE";
+
+            try
+            {
+                // 使用反射方式查询，自动映射到QuaShowData实体类
+                result = OracleHelp.QueryListByReflect<Models.Model.QuaShowData>(strSql);
+
+                // 如果查询结果为空，返回空列表而不是null
+                if (result == null)
+                {
+                    result = new List<Models.Model.QuaShowData>();
+                }
+            }
+            catch (Exception ex)
+            {
+                // 记录日志（如果有日志组件）
+                // Logger.Error($"获取危急值报告时间中位数失败，年份：{begDate}", ex);
+
+                // 返回空列表避免NullReferenceException
+                result = new List<Models.Model.QuaShowData>();
+
+                // 可以选择抛出异常或者处理
+                throw new Exception($"获取危急值报告时间中位数失败：{ex.Message}", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取危急值报告时间明细数据 Created By 徐振宇 2026年7月15日11:24:14
+        /// </summary>
+        /// <remarks>
+        /// 从V_CRISIS_REPORT_TIME_DETAIL视图中查询指定年月和患者类型的危急值报告时间明细数据
+        /// </remarks>
+        /// <param name="yyyymm">查询年月，格式为"yyyyMM"，例如："202601"</param>
+        /// <param name="patientType">患者类型，例如："门诊"、"住院"、"急诊"、"其他"，传空字符串则查询所有类型</param>
+        /// <returns>返回明细数据DataTable</returns>
+        public DataTable GetCrisisReportTimeDetail(string yyyymm, string patientType)
+        {
+            string strSql = "";
+
+            if (string.IsNullOrEmpty(patientType) || patientType.Contains("合计") )
+            {
+                // 查询所有患者类型
+                strSql = $@"SELECT aa.YYYYMM,
+                           aa.PATIENTTYPE,
+                           aa.VISIT_NO,
+                           aa.PATIENT_NAME,
+                           aa.BARCODE,
+                           aa.REQUEST_NO,
+                           aa.report_no,
+                           aa.item_code,
+                           aa.item_name,
+                           aa.send_time,
+                           aa.RECEIVE_TIME,
+                           aa.COST_MINUTES,
+                           aa.CRISIS_TYPE,
+                           aa.PROCESS_STATUS,
+                           aa.DOCTOR_CODE,
+                           aa.DOCTOR_NAME,
+                           aa.NURSE_CODE,
+                           aa.NURSE_NAME,
+                           aa.PROCESS_RECORD,
+                           aa.PROCESS_TIME  
+                      FROM V_CRISIS_REPORT_TIME_DETAIL aa
+                     WHERE aa.YYYYMM = '{yyyymm}'
+                       AND aa.PATIENTTYPE IN ('门诊','住院','急诊','其他')
+                     ORDER BY aa.PATIENTTYPE, aa.COST_MINUTES DESC";
+            }
+            else
+            {
+                // 查询指定患者类型
+                strSql = $@"SELECT aa.YYYYMM,
+                           aa.PATIENTTYPE,
+                           aa.VISIT_NO,
+                           aa.PATIENT_NAME,
+                           aa.BARCODE,
+                           aa.REQUEST_NO,
+                           aa.report_no,
+                           aa.item_code,
+                           aa.item_name,
+                           aa.send_time,
+                           aa.RECEIVE_TIME,
+                           aa.COST_MINUTES,
+                           aa.CRISIS_TYPE,
+                           aa.PROCESS_STATUS,
+                           aa.DOCTOR_CODE,
+                           aa.DOCTOR_NAME,
+                           aa.NURSE_CODE,
+                           aa.NURSE_NAME,
+                           aa.PROCESS_RECORD,
+                           aa.PROCESS_TIME  
+                      FROM V_CRISIS_REPORT_TIME_DETAIL aa
+                     WHERE aa.YYYYMM = '{yyyymm}'
+                       AND aa.PATIENTTYPE = '{patientType}'
+                     ORDER BY aa.PATIENTTYPE, aa.COST_MINUTES DESC";
+            }
+
+            DataTable dt = OracleHelp.Query(strSql);
+            return dt;
         }
     }
 }

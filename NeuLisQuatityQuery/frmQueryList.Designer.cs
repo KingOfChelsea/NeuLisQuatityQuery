@@ -44,18 +44,29 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelLoading = new System.Windows.Forms.Label();
+            this.panelPagination = new System.Windows.Forms.Panel();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.lblPageInfo = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.numericUpDownPage = new System.Windows.Forms.NumericUpDown();
+            this.cmbPageSize = new System.Windows.Forms.ComboBox();
+            this.lblPageSize = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.panelPagination.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPage)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.Location = new System.Drawing.Point(0, 20);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(984, 561);
+            this.gridControl1.Size = new System.Drawing.Size(984, 567);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -140,7 +151,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 561);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 625);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(984, 0);
             // 
@@ -150,7 +161,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 625);
             // 
             // barDockControlRight
             // 
@@ -158,17 +169,17 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(984, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 625);
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(350, 39);
+            this.labelControl1.Location = new System.Drawing.Point(700, 34);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(84, 14);
+            this.labelControl1.Size = new System.Drawing.Size(108, 14);
             this.labelControl1.TabIndex = 22;
-            this.labelControl1.Text = "危急值超时统计";
+            this.labelControl1.Text = "双击数字可查看明细";
             this.labelControl1.Visible = false;
             // 
             // progressBar1
@@ -178,31 +189,139 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(984, 20);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 27;
+            this.progressBar1.TabIndex = 29;
             this.progressBar1.Visible = false;
             // 
             // labelLoading
             // 
             this.labelLoading.AutoSize = true;
-            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoading.ForeColor = System.Drawing.Color.Gray;
-            this.labelLoading.Location = new System.Drawing.Point(199, 177);
+            this.labelLoading.Location = new System.Drawing.Point(353, 166);
             this.labelLoading.Name = "labelLoading";
-            this.labelLoading.Size = new System.Drawing.Size(543, 55);
-            this.labelLoading.TabIndex = 28;
+            this.labelLoading.Size = new System.Drawing.Size(726, 73);
+            this.labelLoading.TabIndex = 33;
             this.labelLoading.Text = "正在加载数据，请稍候...";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoading.Visible = false;
+            // 
+            // panelPagination
+            // 
+            this.panelPagination.Controls.Add(this.btnFirst);
+            this.panelPagination.Controls.Add(this.btnPrev);
+            this.panelPagination.Controls.Add(this.lblPageInfo);
+            this.panelPagination.Controls.Add(this.btnNext);
+            this.panelPagination.Controls.Add(this.btnLast);
+            this.panelPagination.Controls.Add(this.numericUpDownPage);
+            this.panelPagination.Controls.Add(this.cmbPageSize);
+            this.panelPagination.Controls.Add(this.lblPageSize);
+            this.panelPagination.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPagination.Location = new System.Drawing.Point(0, 587);
+            this.panelPagination.Name = "panelPagination";
+            this.panelPagination.Size = new System.Drawing.Size(984, 38);
+            this.panelPagination.TabIndex = 37;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(380, 8);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(54, 23);
+            this.btnFirst.TabIndex = 41;
+            this.btnFirst.Text = "首页";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Location = new System.Drawing.Point(440, 8);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(66, 23);
+            this.btnPrev.TabIndex = 42;
+            this.btnPrev.Text = "上一页";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // lblPageInfo
+            // 
+            this.lblPageInfo.AutoSize = true;
+            this.lblPageInfo.Location = new System.Drawing.Point(605, 12);
+            this.lblPageInfo.Name = "lblPageInfo";
+            this.lblPageInfo.Size = new System.Drawing.Size(71, 12);
+            this.lblPageInfo.TabIndex = 44;
+            this.lblPageInfo.Text = "第1页/共1页";
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(710, 8);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(64, 23);
+            this.btnNext.TabIndex = 43;
+            this.btnNext.Text = "下一页";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(780, 8);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(58, 23);
+            this.btnLast.TabIndex = 44;
+            this.btnLast.Text = "末页";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // numericUpDownPage
+            // 
+            this.numericUpDownPage.Location = new System.Drawing.Point(525, 8);
+            this.numericUpDownPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownPage.Name = "numericUpDownPage";
+            this.numericUpDownPage.Size = new System.Drawing.Size(61, 21);
+            this.numericUpDownPage.TabIndex = 62;
+            this.numericUpDownPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDownPage_KeyPress);
+            // 
+            // cmbPageSize
+            // 
+            this.cmbPageSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPageSize.Items.AddRange(new object[] {
+            "20",
+            "50",
+            "100",
+            "200",
+            "500"});
+            this.cmbPageSize.Location = new System.Drawing.Point(854, 11);
+            this.cmbPageSize.Name = "cmbPageSize";
+            this.cmbPageSize.Size = new System.Drawing.Size(78, 20);
+            this.cmbPageSize.TabIndex = 63;
+            this.cmbPageSize.SelectedIndexChanged += new System.EventHandler(this.cmbPageSize_SelectedIndexChanged);
+            // 
+            // lblPageSize
+            // 
+            this.lblPageSize.AutoSize = true;
+            this.lblPageSize.Location = new System.Drawing.Point(942, 9);
+            this.lblPageSize.Name = "lblPageSize";
+            this.lblPageSize.Size = new System.Drawing.Size(35, 24);
+            this.lblPageSize.TabIndex = 69;
+            this.lblPageSize.Text = "条/页\r\n共0条";
             // 
             // frmQueryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(984, 625);
+            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.panelPagination);
             this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -215,6 +334,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            this.panelPagination.ResumeLayout(false);
+            this.panelPagination.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,9 +356,18 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-
-        // 新增控件声明
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labelLoading;
+
+        // 分页控件声明
+        private System.Windows.Forms.Panel panelPagination;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Label lblPageInfo;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.NumericUpDown numericUpDownPage;
+        private System.Windows.Forms.ComboBox cmbPageSize;
+        private System.Windows.Forms.Label lblPageSize;
     }
 }

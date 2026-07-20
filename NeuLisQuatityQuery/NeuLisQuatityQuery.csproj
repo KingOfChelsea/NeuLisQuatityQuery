@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>qww1x-l2bli-001.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v16.2" />
     <Reference Include="DevExpress.Data.v16.2" />
@@ -46,6 +49,10 @@
     <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="NeuLis.DataBase">
       <HintPath>..\lib\NeuLis.DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="NeuLis.MedicalIconsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NeuLis.MedicalIconsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="NeuLis.Models">
       <HintPath>..\lib\NeuLis.Models.dll</HintPath>
@@ -194,6 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="qww1x-l2bli-001.ico" />
+    <Content Include="Resources\检查检验1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
