@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81077409-5809-419E-AAAB-16A7FB552D26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeuLis.MedicalIconsLibrary</RootNamespace>
+    <AssemblyName>NeuLis.MedicalIconsLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IconManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\Medical\a-bianzu40.png" />
+    <Content Include="Resources\Icons\Medical\bingchuang.png" />
+    <Content Include="Resources\Icons\Medical\bingdu.png" />
+    <Content Include="Resources\Icons\Medical\chaoshengbo.png" />
+    <Content Include="Resources\Icons\Medical\chuangketie.png" />
+    <Content Include="Resources\Icons\Medical\chufang.png" />
+    <Content Include="Resources\Icons\Medical\danjia.png" />
+    <Content Include="Resources\Icons\Medical\dianhuahujiao.png" />
+    <Content Include="Resources\Icons\Medical\feizang.png" />
+    <Content Include="Resources\Icons\Medical\ganzang.png" />
+    <Content Include="Resources\Icons\Medical\gongju.png" />
+    <Content Include="Resources\Icons\Medical\guaizhang.png" />
+    <Content Include="Resources\Icons\Medical\guanchang.png" />
+    <Content Include="Resources\Icons\Medical\hushi.png" />
+    <Content Include="Resources\Icons\Medical\jianchajianyan.png" />
+    <Content Include="Resources\Icons\Medical\jijiubao.png" />
+    <Content Include="Resources\Icons\Medical\jiuhuche.png" />
+    <Content Include="Resources\Icons\Medical\kaizhengming.png" />
+    <Content Include="Resources\Icons\Medical\laonianyixue.png" />
+    <Content Include="Resources\Icons\Medical\linchuang.png" />
+    <Content Include="Resources\Icons\Medical\lunyi.png" />
+    <Content Include="Resources\Icons\Medical\maichong.png" />
+    <Content Include="Resources\Icons\Medical\menzhenhushizhan.png" />
+    <Content Include="Resources\Icons\Medical\niao.png" />
+    <Content Include="Resources\Icons\Medical\niezi.png" />
+    <Content Include="Resources\Icons\Medical\penwu.png" />
+    <Content Include="Resources\Icons\Medical\saomiaoyi.png" />
+    <Content Include="Resources\Icons\Medical\shenzang.png" />
+    <Content Include="Resources\Icons\Medical\shiguan.png" />
+    <Content Include="Resources\Icons\Medical\shoushudao.png" />
+    <Content Include="Resources\Icons\Medical\sidai.png" />
+    <Content Include="Resources\Icons\Medical\tangjiang.png" />
+    <Content Include="Resources\Icons\Medical\tianbiao.png" />
+    <Content Include="Resources\Icons\Medical\tingzhenqi.png" />
+    <Content Include="Resources\Icons\Medical\tongzhi.png" />
+    <Content Include="Resources\Icons\Medical\wei.png" />
+    <Content Include="Resources\Icons\Medical\weizhi.png" />
+    <Content Include="Resources\Icons\Medical\wenduji.png" />
+    <Content Include="Resources\Icons\Medical\wupin.png" />
+    <Content Include="Resources\Icons\Medical\xieqing.png" />
+    <Content Include="Resources\Icons\Medical\xieye.png" />
+    <Content Include="Resources\Icons\Medical\xinguan.png" />
+    <Content Include="Resources\Icons\Medical\xintiao.png" />
+    <Content Include="Resources\Icons\Medical\Xshexian.png" />
+    <Content Include="Resources\Icons\Medical\yachi.png" />
+    <Content Include="Resources\Icons\Medical\yanxie.png" />
+    <Content Include="Resources\Icons\Medical\yanyaoshui.png" />
+    <Content Include="Resources\Icons\Medical\yao1.png" />
+    <Content Include="Resources\Icons\Medical\yao2.png" />
+    <Content Include="Resources\Icons\Medical\yao3.png" />
+    <Content Include="Resources\Icons\Medical\yaowu.png" />
+    <Content Include="Resources\Icons\Medical\yiliao.png" />
+    <Content Include="Resources\Icons\Medical\yisheng.png" />
+    <Content Include="Resources\Icons\Medical\yisheng1.png" />
+    <Content Include="Resources\Icons\Medical\yishenggangwei.png" />
+    <Content Include="Resources\Icons\Medical\yishengpaiban.png" />
+    <Content Include="Resources\Icons\Medical\yishengziliao.png" />
+    <Content Include="Resources\Icons\Medical\yixuejianyanke.png" />
+    <Content Include="Resources\Icons\Medical\yixueyingxiangke.png" />
+    <Content Include="Resources\Icons\Medical\yiyuan.png" />
+    <Content Include="Resources\Icons\Medical\yuyue.png" />
+    <Content Include="Resources\Icons\Medical\yuyueyisheng.png" />
+    <Content Include="Resources\Icons\Medical\zhongzhengyixuezhongxin.png" />
+    <Content Include="Resources\Icons\Medical\zhushe.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+  <!-- 选中 Resources 文件夹下的所有文件 -->
+  <None Include="Resources\**\*">
+    <!-- PreserveNewest: 如果文件有更新才复制，否则不复制 -->
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+</Project>

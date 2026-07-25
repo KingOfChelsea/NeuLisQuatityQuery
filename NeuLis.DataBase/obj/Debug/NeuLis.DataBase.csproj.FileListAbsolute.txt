@@ -11,3 +11,4 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.DataBase\obj\Debug\NeuLis.DataBa
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.DataBase\obj\Debug\NeuLis.DataBase.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.DataBase\obj\Debug\NeuLis.DataBase.dll
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.DataBase\obj\Debug\NeuLis.DataBase.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.DataBase\obj\Debug\NeuLis.DataBase.csprojAssemblyReference.cache
