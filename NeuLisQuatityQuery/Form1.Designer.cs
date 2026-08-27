@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
@@ -136,6 +136,7 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.btnOpenReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -167,9 +168,9 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.bandedGridView1;
             this.gridControl1.Name = "gridControl1";
@@ -654,6 +655,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnOpenReport);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.begDate);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1160,6 +1162,16 @@
             this.treeList1.BeforeCheckNode += new DevExpress.XtraTreeList.CheckNodeEventHandler(this.treeList1_BeforeCheckNode);
             this.treeList1.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterCheckNode);
             // 
+            // btnOpenReport
+            // 
+            this.btnOpenReport.Location = new System.Drawing.Point(273, 17);
+            this.btnOpenReport.Name = "btnOpenReport";
+            this.btnOpenReport.Size = new System.Drawing.Size(106, 23);
+            this.btnOpenReport.TabIndex = 2;
+            this.btnOpenReport.Text = "危急值5分钟接收确认率报表";
+            this.btnOpenReport.UseVisualStyleBackColor = true;
+            this.btnOpenReport.Click += new System.EventHandler(this.btnOpenReport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1316,6 +1328,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private DevExpress.XtraTreeList.TreeList treeList1;
+        private System.Windows.Forms.Button btnOpenReport;
     }
 }
 

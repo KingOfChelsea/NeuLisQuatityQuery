@@ -2275,5 +2275,23 @@ namespace NeuLisQuatityQuery
         {
             e.State = (e.PrevState == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked);
         }
+
+        /// <summary>
+        /// 危急值5分钟接收确认率报表跳转链接 Created By xuzhenyu 2026年8月27日11:43:55
+        /// </summary>
+        private UrlProxyService proxyService;
+        private readonly string reportUrl = "http://10.161.211.95:8087/report/Report-EntryAction.do?reportId=REPORT-CBC2FB77E9100001D841365AE3D0A800";
+        private void btnOpenReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = reportUrl;
+                System.Diagnostics.Process.Start(url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"无法打开浏览器：{ex.Message}");
+            }
+        }
     }
 }

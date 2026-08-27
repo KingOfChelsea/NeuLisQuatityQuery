@@ -12,4 +12,3 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.c
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.dll
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.Models\obj\Debug\NeuLis.Models.csprojAssemblyReference.cache
