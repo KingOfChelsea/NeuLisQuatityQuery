@@ -55,7 +55,6 @@
     <Compile Include="NeulisDictionary.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrlProxyService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

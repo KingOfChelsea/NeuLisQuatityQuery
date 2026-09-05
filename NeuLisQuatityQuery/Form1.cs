@@ -16,6 +16,7 @@ using DevExpress.Export;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraTreeList.Nodes;
 using NeuLis.MedicalIconsLibrary;
+using NeuLisQuatityQuery.Utils;
 
 namespace NeuLisQuatityQuery
 {
@@ -34,6 +35,8 @@ namespace NeuLisQuatityQuery
                 // 将Image转换为Icon
                 this.Icon = Icon.FromHandle(((Bitmap)iconImage).GetHicon());
             }
+            LoadTestTypes();
+            LoadReportAddresses();
         }
 
         /// <summary>
@@ -2276,21 +2279,284 @@ namespace NeuLisQuatityQuery
             e.State = (e.PrevState == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked);
         }
 
+        #region Unireport报表加载地址 Created By 徐振宇 20260904 
         /// <summary>
         /// 危急值5分钟接收确认率报表跳转链接 Created By xuzhenyu 2026年8月27日11:43:55
         /// </summary>
-        private UrlProxyService proxyService;
-        private readonly string reportUrl = "http://10.161.211.95:8087/report/Report-EntryAction.do?reportId=REPORT-CBC2FB77E9100001D841365AE3D0A800";
-        private void btnOpenReport_Click(object sender, EventArgs e)
+
+        private void LoadReportAddresses()
         {
+            QualityOperDB db = new QualityOperDB();
+            List<SysDictionary> reportAddresses = db.GetByTypeId("ReportAddress");
+
+            comboBox1.DataSource = reportAddresses;
+            comboBox1.DisplayMember = "DicName";
+            comboBox1.ValueMember = "DicId";
+
+            // 绑定选择改变事件
+            comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
+
+            // 初始化链接显示
+            if (comboBox1.Items.Count > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+                UpdateLinkLabel();
+            }
+        }
+        // 选择改变时更新链接
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateLinkLabel();
+        }
+
+        // 更新LinkLabel显示
+        private void UpdateLinkLabel()
+        {
+            if (comboBox1.SelectedItem is SysDictionary selected)
+            {
+                string url = selected.Memo1;
+                if (!string.IsNullOrEmpty(url))
+                {
+                    linkLabel1.Text = "点击访问: " + url;
+                    linkLabel1.Links.Clear();
+                    linkLabel1.Links.Add(0, linkLabel1.Text.Length, url);
+                    linkLabel1.Visible = true;
+                }
+                else
+                {
+                    linkLabel1.Text = "暂无链接";
+                    linkLabel1.Visible = false;
+                }
+            }
+        }
+
+        // 点击链接跳转
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = e.Link.LinkData as string;
+            if (!string.IsNullOrEmpty(url))
+            {
+                try
+                {
+                    // 确保URL有协议前缀
+                    if (!url.StartsWith("http://") && !url.StartsWith("https://"))
+                    {
+                        url = "http://" + url;
+                    }
+
+                    // 使用默认浏览器打开
+                   System.Diagnostics.Process.Start(url);
+                   // WebPageForm webForm = new WebPageForm(url); 版本低无法启用Unireport
+                   // webForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"打开链接失败: {ex.Message}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+        #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 加载检验类型 Create By 徐振宇 2026年9月5日11:58:48
+        /// </summary>
+        private void LoadTestTypes()
+        {
+            // 手动添加检验类型，去掉自动识别
+            cmbTestType.Items.Clear();
+            cmbTestType.Items.Add("微生物检验");
+            cmbTestType.Items.Add("常规检验");
+
+            // 默认选中第一项
+            cmbTestType.SelectedIndex = 0;
+            textBox2.Text = CommonMethod.GetValidLocalIPAddress();
+        }
+        /// <summary>
+        ///  更新360PDF报告用于回传平台失败使用 Created By 徐振宇 2026年9月5日17:46:15
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string barcode = txtBarcode.Text.Trim();
+            if (string.IsNullOrEmpty(barcode))
+            {
+                MessageBox.Show("请输入条码号", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // 检查是否选择了检验类型
+            if (cmbTestType.SelectedIndex == -1)
+            {
+                MessageBox.Show("请选择检验类型", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string result;
+            QualityOperDB db = new QualityOperDB();
             try
             {
-                string url = reportUrl;
-                System.Diagnostics.Process.Start(url);
+                if (cmbTestType.SelectedItem.ToString() == "微生物检验")
+                {
+                    result = db.UpdateSampleReg(barcode, TestType.Microbiology);
+                }
+                else if (cmbTestType.SelectedItem.ToString() == "常规检验")
+                {
+                    result = db.UpdateSampleReg(barcode, TestType.Routine);
+                }
+                else
+                {
+                    MessageBox.Show("请选择有效的检验类型", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Log.WriteLog(Log.LogLevel.INFO, result,textBox2.Text); // 调用成功日志
+                MessageBox.Show(result, "更新结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"无法打开浏览器：{ex.Message}");
+                Log.WriteException(ex, "更新360PDF失败日志如下："); //异常日志
+            }
+
+        }
+        /// <summary>
+        /// 360报告状态查询 Created By 徐振宇 时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. 必填项校验
+                if (dateTimePicker1.Value == null || dateTimePicker2.Value == null)
+                {
+                    MessageBox.Show("检验日期为必填项，请选择查询日期范围！", "提示",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 2. 日期范围校验
+                if (dateTimePicker1.Value.Date > dateTimePicker2.Value.Date)
+                {
+                    MessageBox.Show("开始日期不能大于结束日期，请重新选择！", "提示",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 3. 查询范围限制（一周内）
+                TimeSpan span = dateTimePicker2.Value.Date - dateTimePicker1.Value.Date;
+                if (span.TotalDays > 7)
+                {
+                    DialogResult result = MessageBox.Show(
+                        "您选择的查询日期范围超过7天！\n\n" +
+                        "查询范围过大可能导致：\n" +
+                        "• 查询速度缓慢\n" +
+                        "• 系统卡顿\n" +
+                        "• 占用大量内存和CPU资源\n\n" +
+                        "是否仍要继续查询？", "查询范围提示",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                // 取日期并转成字符串（yyyyMMdd）
+                DateTime startDate = dateTimePicker1.Value;
+                DateTime endDate = dateTimePicker2.Value;
+                string barcode = textBox3.Text.Trim();
+                string patientId = textBox4.Text.Trim();
+
+                QualityOperDB db = new QualityOperDB();
+                DataTable dt = db.QuerySampleReg(startDate, endDate, barcode, patientId);
+
+                // 直接绑定到gridControl3
+                gridControl3.DataSource = dt;
+
+                //设置Grid列中文标题（DevExpress）
+                SetGridColumns(); 
+                if (dt == null || dt.Rows.Count == 0)
+                    MessageBox.Show("未查询到符合条件的数据！\n\n" +
+                            "请确认：\n" +
+                            "• 检验日期范围是否正确\n" +
+                            "• 条码号或患者号是否输入正确\n" +
+                            "• 该时间段内是否有检验记录", "查询结果",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+             
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex,"360上传状态查询日志");
+                MessageBox.Show($"查询失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 设置Grid列中文标题（DevExpress） Created By 徐振宇 2026年9月5日19:37:42
+        /// </summary>
+        private void SetGridColumns()
+        {
+            var view = gridControl3.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view == null) return;
+
+            view.Columns["TESTDATE"].Caption = "检验日期";
+            view.Columns["BARCODE"].Caption = "条码号";
+            view.Columns["PUSH_STATUS"].Caption = "推送状态";
+            view.Columns["REPORT_STATUS"].Caption = "报告状态";
+            view.Columns["MACHINEID"].Caption = "仪器ID";
+            view.Columns["MACHINENAME"].Caption = "仪器名称";
+            view.Columns["PATIENTID"].Caption = "患者号";
+            view.Columns["PATIENTSEQ"].Caption = "就诊流水号";
+            view.Columns["PATIENTSEX"].Caption = "性别";
+            view.Columns["PATIENTAGE"].Caption = "年龄";
+            view.Columns["HISITEMIDLIST"].Caption = "HIS项目ID";
+            view.Columns["HISITEMNAMELIST"].Caption = "HIS项目名称";
+
+            // 自动调整列宽
+            //view.BestFitColumns();
+
+            // 订阅行单元格样式事件
+            view.RowCellStyle -= View_RowCellStyle;  // 先取消，避免重复订阅
+            view.RowCellStyle += View_RowCellStyle;
+        }
+
+        /// <summary>
+        /// 行单元格样式：状态列特殊颜色 Created By 徐振宇2026-09-05 19:42:50
+        /// </summary>
+        /// <summary>
+        /// 行单元格样式：状态列特殊颜色
+        /// </summary>
+        private void View_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            // 从事件参数中获取GridView
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view == null) return;
+
+            // 推送状态列：不是"已推送"时显示红色
+            if (e.Column.FieldName == "PUSH_STATUS")
+            {
+                string pushStatus = view.GetRowCellValue(e.RowHandle, "PUSH_STATUS")?.ToString();
+                if (!string.IsNullOrEmpty(pushStatus) && pushStatus != "已推送")
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
+            }
+
+            // 报告状态列：不是"已生成PDF"时显示红色
+            if (e.Column.FieldName == "REPORT_STATUS")
+            {
+                string reportStatus = view.GetRowCellValue(e.RowHandle, "REPORT_STATUS")?.ToString();
+                if (!string.IsNullOrEmpty(reportStatus) && reportStatus != "已生成PDF")
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
             }
         }
     }

@@ -1,10 +1,5 @@
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\bin\Debug\NeuLis.MedicalIconsLibrary.dll
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\bin\Debug\NeuLis.MedicalIconsLibrary.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.csproj.CoreCompileInputs.cache
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.dll
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.MedicalIconsLibrary.dll
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.MedicalIconsLibrary.pdb
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\a-bianzu40.png
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\bingchuang.png
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\bingdu.png
@@ -69,4 +64,8 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\yuyue.png
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\yuyueyisheng.png
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\zhongzhengyixuezhongxin.png
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\Resources\Icons\Medical\zhushe.png
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.csprojAssemblyReference.cache
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.MedicalIconsLibrary.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLis.MedicalIconsLibrary.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.csproj.CoreCompileInputs.cache
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLis.MedicalIconsLibrary\obj\Debug\NeuLis.MedicalIconsLibrary.pdb

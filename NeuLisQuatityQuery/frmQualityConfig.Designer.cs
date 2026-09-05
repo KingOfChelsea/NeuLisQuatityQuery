@@ -37,6 +37,7 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barLargeButtonItem1 = new DevExpress.XtraBars.BarLargeButtonItem();
             this.lbtSave = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnDel = new DevExpress.XtraBars.BarLargeButtonItem();
             this.lbtExit = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItem2 = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -78,6 +79,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.gridControl4 = new DevExpress.XtraGrid.GridControl();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl5 = new DevExpress.XtraGrid.GridControl();
@@ -89,8 +91,6 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btnDel = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,13 +101,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
-            this.xtraTabPage2.SuspendLayout();
-            this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -123,8 +120,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -168,12 +165,14 @@
             this.txtEmc.Location = new System.Drawing.Point(1021, 20);
             this.txtEmc.MenuManager = this.barManager1;
             this.txtEmc.Name = "txtEmc";
+            // 
+            // 
+            // 
             this.txtEmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEmc.Properties.Items.AddRange(new object[] {
             "普通",
             "加急"});
-            this.txtEmc.Size = new System.Drawing.Size(100, 20);
             this.txtEmc.TabIndex = 8;
             // 
             // barManager1
@@ -225,6 +224,15 @@
             this.lbtSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.lbtSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.lbtSave_ItemClick);
             // 
+            // btnDel
+            // 
+            this.btnDel.Caption = "删除";
+            this.btnDel.Id = 4;
+            this.btnDel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.ImageOptions.Image")));
+            this.btnDel.Name = "btnDel";
+            this.btnDel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDel_ItemClick);
+            // 
             // lbtExit
             // 
             this.lbtExit.Caption = "退出";
@@ -246,7 +254,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1179, 67);
+            this.barDockControlTop.Size = new System.Drawing.Size(1179, 0);
             // 
             // barDockControlBottom
             // 
@@ -260,17 +268,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 67);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 622);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 689);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1179, 67);
+            this.barDockControlRight.Location = new System.Drawing.Point(1179, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 622);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 689);
             // 
             // labelControl3
             // 
@@ -399,10 +407,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 67);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1179, 622);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1179, 689);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -413,8 +421,9 @@
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl1);
+            this.xtraTabPage1.Enabled = true;
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1173, 593);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1173, 660);
             this.xtraTabPage1.Text = "检验小组维护";
             // 
             // gridControl1
@@ -427,7 +436,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1173, 593);
+            this.gridControl1.Size = new System.Drawing.Size(1173, 660);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -480,6 +489,7 @@
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.splitContainer1);
+            this.xtraTabPage2.Enabled = true;
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1173, 593);
             this.xtraTabPage2.Text = "项目类别维护";
@@ -487,6 +497,7 @@
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.splitContainer2);
+            this.xtraTabPage3.Enabled = true;
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(1173, 593);
             this.xtraTabPage3.Text = "项目类别对照";
@@ -595,6 +606,14 @@
             this.splitContainer3.SplitterDistance = 573;
             this.splitContainer3.TabIndex = 0;
             // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 593);
+            this.splitter1.TabIndex = 1;
+            this.splitter1.TabStop = false;
+            // 
             // gridControl4
             // 
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -679,7 +698,6 @@
             // 
             this.simpleButton2.Location = new System.Drawing.Point(162, 53);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 3;
             this.simpleButton2.Text = "添加";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -688,7 +706,6 @@
             // 
             this.simpleButton1.Location = new System.Drawing.Point(53, 54);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "查询";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -699,8 +716,14 @@
             this.dateEdit1.Location = new System.Drawing.Point(67, 21);
             this.dateEdit1.MenuManager = this.barManager1;
             this.dateEdit1.Name = "dateEdit1";
+            // 
+            // 
+            // 
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            // 
+            // 
+            // 
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.DisplayFormat.FormatString = "yyyy";
@@ -718,23 +741,6 @@
             this.labelControl5.Size = new System.Drawing.Size(24, 14);
             this.labelControl5.TabIndex = 0;
             this.labelControl5.Text = "年度";
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 593);
-            this.splitter1.TabIndex = 1;
-            this.splitter1.TabStop = false;
-            // 
-            // btnDel
-            // 
-            this.btnDel.Caption = "删除";
-            this.btnDel.Id = 4;
-            this.btnDel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem3.ImageOptions.Image")));
-            this.btnDel.Name = "btnDel";
-            this.btnDel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnDel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDel_ItemClick);
             // 
             // frmQualityConfig
             // 
@@ -761,13 +767,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
-            this.xtraTabPage2.ResumeLayout(false);
-            this.xtraTabPage3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();

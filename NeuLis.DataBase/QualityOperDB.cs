@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeuLis.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -661,18 +662,18 @@ select t.emc,
             alitem = OracleHelp.QueryListByEmit<NeuLis.Models.ModelQuatity.tatItem>(strSql);
             return alitem;
         }
-        public DataTable getTATItemList(string begDate,string endDate,string typeid ,string groupid,string typename)
+        public DataTable getTATItemList(string begDate, string endDate, string typeid, string groupid, string typename)
         {
             string strsql1 = "";
-            if(typename== "sapcount")
+            if (typename == "sapcount")
             {
                 strsql1 = "1=1";
             }
-            else if(typename == "jyqbhg")
+            else if (typename == "jyqbhg")
             {
                 strsql1 = "(round((a.INCEPTTIME - a.SAMPLETIME) * 24 * 60, 1)>b.pretime)";
             }
-            else if(typename == "jyzbhg")
+            else if (typename == "jyzbhg")
             {
                 strsql1 = "(round((a.APPROVETIME - a.INCEPTTIME) * 24 * 60, 1)>b.aftertime)";
             }
@@ -755,7 +756,7 @@ select t.emc,
                     ";
             DataTable dt = OracleHelp.Query(strSql);
             return dt;
-        
+
         }
         public List<Models.ModelQuatity.sysConfig> getsysConfig()
         {
@@ -763,7 +764,7 @@ select t.emc,
             Models.ModelQuatity.sysConfig model = new Models.ModelQuatity.sysConfig();
             string strSql = "select a.typeclass,a.sqlindex,a.sql,a.memo from las_qua_sysconfig  a";
             DataTable dt = OracleHelp.Query(strSql);
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 model = new Models.ModelQuatity.sysConfig();
                 model.typeclass = dr["typeclass"].ToString();
@@ -802,11 +803,158 @@ select t.emc,
                                        and a.WARDID is not null)
                              group by PATIENTTYPE,WARDID, WARDNAME 
                               order by PATIENTTYPE,(sum(bz) / count(BARCODE)) ";
-            Log.WriteLog("查询未确认采集标本率："+strSql);
+            Log.WriteLog("查询未确认采集标本率：" + strSql);
             // badList = OracleHelp.QueryListByEmit<Models.ModelQuatity.quatitydata>(strSql);
-           DataTable badList = OracleHelp.Query(strSql);
+            DataTable badList = OracleHelp.Query(strSql);
             return badList;
         }
 
+        /// <summary>
+        /// 根据类型ID获取字典列表
+        /// </summary>
+        /// <param name="typeId">类型ID</param>
+        /// <returns>字典列表</returns>
+        public List<Models.SysDictionary> GetByTypeId(string typeId)
+        {
+            // 由于QueryListByEmit只接受1个参数，需要将typeId直接拼接到SQL中
+
+            string sql = $@"
+        SELECT a.sequences,
+               a.typeid,
+               a.dicid,
+               a.shortcut,
+               a.dicname,
+               a.showorder,
+               a.memo1,
+               a.memo2,
+               a.memo3,
+               a.isshow,
+               a.dicclass,
+               a.memo4,
+               a.memo5,
+               a.isopenedit,
+               a.lspmapping,
+               a.lspmappingname,
+               a.memo6,
+               a.memo7,
+               a.memo8,
+               a.memo9,
+               a.memo10
+        FROM winlis.LAS_SYS_DICTIONARY a
+        WHERE a.TYPEID = '{typeId}' ";
+
+
+            return OracleHelp.QueryListByEmit<Models.SysDictionary>(sql);
+
+        }
+
+        /// <summary>
+        /// 根据条码号和检验类型更新样本登记表 Created by Zane Xu 20260905
+        /// </summary>
+        /// <param name="barcode">条码号</param>
+        /// <param name="testType">检验类型：Microbiology（微生物）/ Routine（常规）</param>
+        /// <returns>更新结果信息</returns>
+        public string UpdateSampleReg(string barcode, TestType testType)
+        {
+            // 验证条码号不为空
+            if (string.IsNullOrWhiteSpace(barcode))
+            {
+                return "条码号不能为空";
+            }
+
+            // 转义单引号防止SQL注入
+            string safeBarcode = barcode;
+
+            // 根据检验类型选择表名
+            string tableName;
+            string testTypeName;
+            switch (testType)
+            {
+                case TestType.Microbiology:
+                    tableName = "las_gm_samplereg";
+                    testTypeName = "微生物";
+                    break;
+                case TestType.Routine:
+                    tableName = "las_sap_samplereg";
+                    testTypeName = "常规";
+                    break;
+                default:
+                    return $"不支持的检验类型: {testType}";
+            }
+
+            // 先查询是否存在该条码
+            string checkSql = $@"
+        SELECT COUNT(*) 
+        FROM {tableName} 
+        WHERE barcode = '{safeBarcode}'";
+
+            DataTable dt = OracleHelp.Query(checkSql);
+            if (dt == null || dt.Rows.Count == 0 || Convert.ToInt32(dt.Rows[0][0]) == 0)
+            {
+                return $"条码号 '{barcode}' 在{testTypeName}检验表中不存在";
+            }
+
+            // 执行更新
+            string updateSql = $@"
+        UPDATE {tableName}
+        SET lsptestform = SUBSTR(lsptestform, 1, 1) || '0' || SUBSTR(state2, 3)
+        WHERE SUBSTR(state2, 10, 1) = '1' 
+          AND SUBSTR(lsptestform, 2, 1) != '1'
+          AND barcode = '{safeBarcode}'";
+
+            int affectedRows = OracleHelp.ExecuteNonQuery(updateSql);
+
+            if (affectedRows > 0)
+            {
+                return $"{testTypeName}检验更新成功，共更新 {affectedRows} 条记录";
+            }
+            else
+            {
+                return $"{testTypeName}检验没有符合条件的记录需要更新（可能条件不满足）";
+            }
+        }
+
+        /// <summary>
+        /// 根据条件查询样本登记信息（直接拼接SQL）
+        /// </summary>
+        public DataTable QuerySampleReg(DateTime startDate, DateTime endDate,string barcode, string patientId)
+        {
+            // 直接拼接SQL
+            string strSql = @"
+                                    SELECT a.testdate, a.barcode,
+                                           CASE SUBSTR(a.lsptestform, 2, 1)
+                                               WHEN '0' THEN '未推送'
+                                               WHEN '1' THEN '已推送'
+                                               WHEN '2' THEN '推送失败'
+                                               ELSE SUBSTR(a.lsptestform, 2, 1)
+                                           END AS push_status,
+                                           CASE SUBSTR(a.state2, 10, 1)
+                                               WHEN '0' THEN '未生成PDF'
+                                               WHEN '1' THEN '已生成PDF'
+                                               ELSE SUBSTR(a.state2, 10, 1)
+                                           END AS report_status,
+                                           a.machineid, a.machinename, a.patientid, a.patientseq,
+                                           a.patientsex, a.patientage, a.hisitemidlist, a.hisitemnamelist
+                                      FROM winlis.v_dc_view_las_sap_samplereg a
+                                     WHERE a.testdate >= '" + startDate.ToString("yyyyMMdd") + "'" +
+                                             "   AND a.testdate <= '" + endDate.ToString("yyyyMMdd") + "'";
+
+            // 条码号（可空）
+            if (!string.IsNullOrWhiteSpace(barcode))
+            {
+                strSql += "   AND a.barcode = '" + barcode.Trim().Replace("'", "''") + "'";
+            }
+
+            // 患者号（可空）
+            if (!string.IsNullOrWhiteSpace(patientId))
+            {
+                strSql += "   AND a.PATIENTID = '" + patientId.Trim().Replace("'", "''") + "'";
+            }
+
+            strSql += " ORDER BY a.testdate DESC";
+
+            // 直接返回DataTable
+            return OracleHelp.Query(strSql);
+        }
     }
-}
+    }
