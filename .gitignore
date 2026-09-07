@@ -2,3 +2,9 @@
 lib/
 # 忽略 bin 目录（所有层级下的 bin
 **/bin/
+# .vs文件夹
+.vs/
+# 忽略package文件夹
+packages/
+# 忽略 obj 目录（所有层级下的 obj
+**/obj/
