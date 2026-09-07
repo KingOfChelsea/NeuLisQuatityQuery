@@ -107,7 +107,6 @@ D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery
 D:\LIS-neusoft\医院备份\Q-祈福医院\质量指标统计\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmSysConfig.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.exe
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\NeuLisQuatityQuery.pdb
-E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csprojAssemblyReference.cache
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.Form1.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmConfig.resources
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.frmHisItemType.resources
@@ -127,3 +126,15 @@ E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuat
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.csproj.CopyComplete
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.exe
 E:\X徐振宇\16.Code\NeuLisQuatityQuery\NeuLisQuatityQuery\obj\Debug\NeuLisQuatityQuery.pdb
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\libcef.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\libEGL.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\libGLESv2.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\ffmpegsumo.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\d3dcompiler_47.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\d3dcompiler_43.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\pdf.dll
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\cef.pak
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\cef_100_percent.pak
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\cef_200_percent.pak
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\devtools_resources.pak
+E:\X徐振宇\16.Code\NeuLisQuatityQuery\lib\icudtl.dat

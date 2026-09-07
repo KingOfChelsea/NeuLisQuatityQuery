@@ -37,6 +37,7 @@ namespace NeuLisQuatityQuery
             }
             LoadTestTypes();
             LoadReportAddresses();
+            ConfigureGrid();
         }
 
         /// <summary>
@@ -2345,9 +2346,10 @@ namespace NeuLisQuatityQuery
                     }
 
                     // 使用默认浏览器打开
-                   System.Diagnostics.Process.Start(url);
-                   // WebPageForm webForm = new WebPageForm(url); 版本低无法启用Unireport
-                   // webForm.Show();
+                     System.Diagnostics.Process.Start(url);
+                    // 模态显示（阻塞当前窗口）
+                    //WebPageForm webForm = new WebPageForm(url);
+                    //webForm.ShowDialog();
                 }
                 catch (Exception ex)
                 {
@@ -2381,7 +2383,7 @@ namespace NeuLisQuatityQuery
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             string barcode = txtBarcode.Text.Trim();
             if (string.IsNullOrEmpty(barcode))
@@ -2412,17 +2414,45 @@ namespace NeuLisQuatityQuery
                     MessageBox.Show("请选择有效的检验类型", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                Log.WriteLog(Log.LogLevel.INFO, result,textBox2.Text); // 调用成功日志
+                // 判断db.UpdateSampleReg操作是否成功  
+                bool isSuccess = result.Contains("成功") || result.Contains("SUCCESS");
+                // 1.本地电脑日志
+                Log.WriteLog(Log.LogLevel.INFO, result,textBox2.Text);
+
+                // 2.数据库日志
+                UpdateLogInfo logInfo = new UpdateLogInfo
+                {
+                    Barcode = barcode,
+                    TestType = cmbTestType.SelectedItem.ToString().Trim(),
+                    OperateType = "更新360PDF",
+                    OperateResult = result,
+                    IpAddress = textBox2.Text.ToString().Trim(),
+                    Status = isSuccess ? "SUCCESS" : "FAILED",
+                    Remark = $"条码号: {barcode}"
+                };
+                db.WriteUpdateLog(logInfo);
+
+                //3.弹框提醒
                 MessageBox.Show(result, "更新结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
+                // 创建失败日志对象
+                UpdateLogInfo logInfo = new UpdateLogInfo
+                {
+                    Barcode = barcode,
+                    TestType = cmbTestType.SelectedItem.ToString(),
+                    OperateType = "更新360PDF",
+                    OperateResult = ex.Message,
+                    IpAddress = textBox2.Text.ToString().Trim(),
+                    Status = "FAILED",
+                    Remark = "异常日志"
+                };
                 Log.WriteException(ex, "更新360PDF失败日志如下："); //异常日志
             }
-
         }
         /// <summary>
-        /// 360报告状态查询 Created By 徐振宇 时间
+        /// 360报告状态查询 Created By 徐振宇 2026-09-07 13:10:48
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -2479,7 +2509,29 @@ namespace NeuLisQuatityQuery
                 gridControl3.DataSource = dt;
 
                 //设置Grid列中文标题（DevExpress）
-                SetGridColumns(); 
+                //SetGridColumns(); 
+                // 设置列标题（字典方式）
+                _gridHelper.SetColumnCaptions(new Dictionary<string, string>
+        {
+            { "TESTDATE", "检验日期" },
+            { "BARCODE", "条码号" },
+            { "PUSH_STATUS", "推送状态" },
+            { "REPORT_STATUS", "报告状态" },
+            { "MACHINEID", "仪器ID" },
+            { "MACHINENAME", "仪器名称" },
+            { "PATIENTID", "患者号" },
+            { "PATIENTSEQ", "就诊流水号" },
+            { "PATIENTSEX", "性别" },
+            { "PATIENTAGE", "年龄" },
+            { "HISITEMIDLIST", "HIS项目ID" },
+            { "HISITEMNAMELIST", "HIS项目名称" }
+        });
+                // 添加统计项
+                _gridHelper.AddSummary("TESTDATE", DevExpress.Data.SummaryItemType.Count, "共 {0} 条");
+                _gridHelper.AddSummary("BARCODE", DevExpress.Data.SummaryItemType.Count, "共 {0} 条");
+
+                // 设置行单元格样式（状态列颜色）
+                _gridHelper.SetRowCellStyleHandler(View_RowCellStyle);
                 if (dt == null || dt.Rows.Count == 0)
                     MessageBox.Show("未查询到符合条件的数据！\n\n" +
                             "请确认：\n" +
@@ -2495,34 +2547,69 @@ namespace NeuLisQuatityQuery
                 MessageBox.Show($"查询失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /// <summary>
+        /// 360报告状态查询数据导出Excel功能 
+        /// </summary>
+        private void ExportToExcel()
+        {
+            if (gridControl3.DataSource == null) return;
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel文件|*.xlsx";
+            dialog.FileName = $"检验数据_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                gridControl3.ExportToXlsx(dialog.FileName);
+                MessageBox.Show($"导出成功！\n文件路径：{dialog.FileName}", "提示",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         /// <summary>
-        /// 设置Grid列中文标题（DevExpress） Created By 徐振宇 2026年9月5日19:37:42
+        /// 360报告查询数据状态创建右键菜单
         /// </summary>
-        private void SetGridColumns()
+        private void CreateContextMenu()
         {
-            var view = gridControl3.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
-            if (view == null) return;
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
 
-            view.Columns["TESTDATE"].Caption = "检验日期";
-            view.Columns["BARCODE"].Caption = "条码号";
-            view.Columns["PUSH_STATUS"].Caption = "推送状态";
-            view.Columns["REPORT_STATUS"].Caption = "报告状态";
-            view.Columns["MACHINEID"].Caption = "仪器ID";
-            view.Columns["MACHINENAME"].Caption = "仪器名称";
-            view.Columns["PATIENTID"].Caption = "患者号";
-            view.Columns["PATIENTSEQ"].Caption = "就诊流水号";
-            view.Columns["PATIENTSEX"].Caption = "性别";
-            view.Columns["PATIENTAGE"].Caption = "年龄";
-            view.Columns["HISITEMIDLIST"].Caption = "HIS项目ID";
-            view.Columns["HISITEMNAMELIST"].Caption = "HIS项目名称";
+            // 刷新
+            ToolStripMenuItem miRefresh = new ToolStripMenuItem("刷新");
+            //miRefresh.Click += (s, e) => btnQuery_Click(s, e);
 
-            // 自动调整列宽
-            //view.BestFitColumns();
+            // 导出Excel
+            ToolStripMenuItem miExport = new ToolStripMenuItem("导出Excel");
+            miExport.Click += (s, e) => ExportToExcel();
 
-            // 订阅行单元格样式事件
-            view.RowCellStyle -= View_RowCellStyle;  // 先取消，避免重复订阅
-            view.RowCellStyle += View_RowCellStyle;
+            // 打印预览
+            ToolStripMenuItem miPrint = new ToolStripMenuItem("打印预览");
+            miPrint.Click += (s, e) => gridControl3.ShowPrintPreview();
+
+            // 复制选中行
+            ToolStripMenuItem miCopy = new ToolStripMenuItem("复制选中行");
+            miCopy.Click += (s, e) =>
+            {
+                var view = gridControl3.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                if (view != null) view.CopyToClipboard();
+            };
+
+            // 全选
+            ToolStripMenuItem miSelectAll = new ToolStripMenuItem("全选");
+            miSelectAll.Click += (s, e) =>
+            {
+                var view = gridControl3.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                if (view != null) view.SelectAll();
+            };
+
+            // 添加到右键菜单
+            contextMenu.Items.AddRange(new ToolStripItem[] {
+        miRefresh, miExport, miPrint,
+        new ToolStripSeparator(),
+        miCopy, miSelectAll
+    });
+
+            // 绑定到GridControl
+            gridControl3.ContextMenuStrip = contextMenu;
         }
 
         /// <summary>
@@ -2559,5 +2646,70 @@ namespace NeuLisQuatityQuery
                 }
             }
         }
+
+        private GridHelper _gridHelper;
+
+        /// <summary>
+        /// 初始化配置GridControl3控件 Created By 徐振宇 2026-09-07 13:12:12
+        /// </summary>
+        private void ConfigureGrid()
+        {
+            // 创建GridHelper实例
+            _gridHelper = new GridHelper(
+                gridControl3,
+                useEmbeddedNavigator: true,
+                useContextMenu: true,
+                useFindPanel: true,
+                useAutoFilterRow: true,
+                useGroupPanel: true,
+                useFooter: true,
+                useRowIndicator: true,
+                useAlternatingRowColors: true
+            );
+
+         
+
+           
+
+            // 添加自定义导航按钮（需要先设置ImageList）
+           // gridControl3.EmbeddedNavigator.Buttons.ImageList = imageCollection1;
+            _gridHelper.AddCustomNavigatorButton(0, "刷新", "Refresh");
+            _gridHelper.AddCustomNavigatorButton(1, "导出Excel", "Export");
+            _gridHelper.AddCustomNavigatorButton(2, "打印预览", "Print");
+
+            // 订阅导航器按钮点击事件
+            _gridHelper.SetNavigatorButtonClickHandler(EmbeddedNavigator_ButtonClick);
+
+            // 订阅右键菜单事件
+            _gridHelper.RefreshClicked += (s, e) => button3_Click(s, e);
+            _gridHelper.ExportClicked += (s, e) => ExportToExcel();
+            _gridHelper.PrintClicked += (s, e) => gridControl3.ShowPrintPreview();
+
+            // 应用所有配置
+            _gridHelper.Apply();
+        }
+
+        /// <summary>
+        /// 导航器按钮点击事件 
+        /// </summary>
+        private void EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        {
+            if (e.Button.ButtonType != NavigatorButtonType.Custom) return;
+
+            switch (e.Button.Tag?.ToString())
+            {
+                case "Refresh":
+                    button3_Click(sender, EventArgs.Empty);
+                    break;
+                case "Export":
+                    ExportToExcel();
+                    break;
+                case "Print":
+                    gridControl3.ShowPrintPreview();
+                    break;
+            }
+            e.Handled = true;
+        }
+
     }
 }

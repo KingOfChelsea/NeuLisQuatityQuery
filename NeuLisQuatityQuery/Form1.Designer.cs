@@ -34,15 +34,52 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.TypeID = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Typename = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Typefx = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Typemb = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Jan = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Feb = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Mar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Apr = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.May = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Jun = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Jul = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Aug = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Sep = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Oct = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Nov = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Dec = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Qst = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnQuery = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.barLargeButtonItem1 = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnConfig = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnExit = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -65,10 +102,47 @@
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.begData1 = new System.Windows.Forms.DateTimePicker();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.bandedGridView2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.PatientType = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.TypeID1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.typeClass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Typename1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Typefx1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Typemb1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Jan1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Feb1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Mar1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Apr1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.May1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Jun1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Jul1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Aug1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Sep1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Oct1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Nov1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Dec1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Qst1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -86,23 +160,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.begData1 = new System.Windows.Forms.DateTimePicker();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.bandedGridView2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -110,63 +167,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.TypeID = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typename = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typefx = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typemb = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jan = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Feb = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Mar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Apr = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.May = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jun = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jul = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Aug = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Sep = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Oct = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Nov = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Dec = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Qst = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PatientType = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.TypeID1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.typeClass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typename1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typefx1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Typemb1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jan1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Feb1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Mar1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Apr1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.May1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jun1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Jul1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Aug1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Sep1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Oct1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Nov1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Dec1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Qst1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.btnQuery = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.barLargeButtonItem1 = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.btnConfig = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.btnExit = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -184,12 +184,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
-            this.splitContainer5.Panel1.SuspendLayout();
-            this.splitContainer5.Panel2.SuspendLayout();
-            this.splitContainer5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -200,6 +194,12 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
@@ -268,6 +268,22 @@
             this.gridBand2.VisibleIndex = 0;
             this.gridBand2.Width = 150;
             // 
+            // TypeID
+            // 
+            this.TypeID.Caption = "指标名称";
+            this.TypeID.FieldName = "TypeID";
+            this.TypeID.Name = "TypeID";
+            this.TypeID.Visible = true;
+            // 
+            // Typename
+            // 
+            this.Typename.AppearanceCell.Options.UseTextOptions = true;
+            this.Typename.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Typename.Caption = "质控指标";
+            this.Typename.FieldName = "Typename";
+            this.Typename.Name = "Typename";
+            this.Typename.Visible = true;
+            // 
             // gridBand3
             // 
             this.gridBand3.Caption = "目标值";
@@ -276,6 +292,25 @@
             this.gridBand3.Name = "gridBand3";
             this.gridBand3.VisibleIndex = 1;
             this.gridBand3.Width = 148;
+            // 
+            // Typefx
+            // 
+            this.Typefx.AppearanceCell.Options.UseTextOptions = true;
+            this.Typefx.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Typefx.Caption = "方向";
+            this.Typefx.FieldName = "Typefx";
+            this.Typefx.Name = "Typefx";
+            this.Typefx.Visible = true;
+            this.Typefx.Width = 73;
+            // 
+            // Typemb
+            // 
+            this.Typemb.AppearanceCell.Options.UseTextOptions = true;
+            this.Typemb.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Typemb.Caption = "取值";
+            this.Typemb.FieldName = "Typemb";
+            this.Typemb.Name = "Typemb";
+            this.Typemb.Visible = true;
             // 
             // gridBand4
             // 
@@ -296,12 +331,106 @@
             this.gridBand4.VisibleIndex = 2;
             this.gridBand4.Width = 936;
             // 
+            // Jan
+            // 
+            this.Jan.AppearanceCell.Options.UseTextOptions = true;
+            this.Jan.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Jan.Caption = "1月";
+            this.Jan.FieldName = "Jan";
+            this.Jan.Name = "Jan";
+            this.Jan.Visible = true;
+            this.Jan.Width = 111;
+            // 
+            // Feb
+            // 
+            this.Feb.Caption = "2月";
+            this.Feb.FieldName = "Feb";
+            this.Feb.Name = "Feb";
+            this.Feb.Visible = true;
+            // 
+            // Mar
+            // 
+            this.Mar.Caption = "3月";
+            this.Mar.FieldName = "Mar";
+            this.Mar.Name = "Mar";
+            this.Mar.Visible = true;
+            // 
+            // Apr
+            // 
+            this.Apr.Caption = "4月";
+            this.Apr.FieldName = "Apr";
+            this.Apr.Name = "Apr";
+            this.Apr.Visible = true;
+            // 
+            // May
+            // 
+            this.May.Caption = "5月";
+            this.May.FieldName = "May";
+            this.May.Name = "May";
+            this.May.Visible = true;
+            // 
+            // Jun
+            // 
+            this.Jun.Caption = "6月";
+            this.Jun.FieldName = "Jun";
+            this.Jun.Name = "Jun";
+            this.Jun.Visible = true;
+            // 
+            // Jul
+            // 
+            this.Jul.Caption = "7月";
+            this.Jul.FieldName = "Jul";
+            this.Jul.Name = "Jul";
+            this.Jul.Visible = true;
+            // 
+            // Aug
+            // 
+            this.Aug.Caption = "8月";
+            this.Aug.FieldName = "Aug";
+            this.Aug.Name = "Aug";
+            this.Aug.Visible = true;
+            // 
+            // Sep
+            // 
+            this.Sep.Caption = "9月";
+            this.Sep.FieldName = "Sep";
+            this.Sep.Name = "Sep";
+            this.Sep.Visible = true;
+            // 
+            // Oct
+            // 
+            this.Oct.Caption = "10月";
+            this.Oct.FieldName = "Oct";
+            this.Oct.Name = "Oct";
+            this.Oct.Visible = true;
+            // 
+            // Nov
+            // 
+            this.Nov.Caption = "11月";
+            this.Nov.FieldName = "Nov";
+            this.Nov.Name = "Nov";
+            this.Nov.Visible = true;
+            // 
+            // Dec
+            // 
+            this.Dec.Caption = "12月";
+            this.Dec.FieldName = "Dec";
+            this.Dec.Name = "Dec";
+            this.Dec.Visible = true;
+            // 
             // gridBand5
             // 
             this.gridBand5.Columns.Add(this.Qst);
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.VisibleIndex = 3;
             this.gridBand5.Width = 75;
+            // 
+            // Qst
+            // 
+            this.Qst.Caption = "合计";
+            this.Qst.FieldName = "Qst";
+            this.Qst.Name = "Qst";
+            this.Qst.Visible = true;
             // 
             // gridView1
             // 
@@ -324,6 +453,118 @@
             this.gridColumn16});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "质控指标";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "方向";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "取值";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "1月";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "2月";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "3月";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "4月";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "5月";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 7;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "6月";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 8;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "7月";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 9;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "8月";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 10;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "9月";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 11;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "10月";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 12;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "11月";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 13;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "12月";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 14;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "趋势图";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 15;
             // 
             // gridView2
             // 
@@ -378,6 +619,42 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnConfig),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnExit)});
             this.bar1.Text = "Tools";
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Caption = "查询";
+            this.btnQuery.Id = 0;
+            this.btnQuery.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.ImageOptions.Image")));
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnQuery.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuery_ItemClick);
+            // 
+            // barLargeButtonItem1
+            // 
+            this.barLargeButtonItem1.Caption = "导出";
+            this.barLargeButtonItem1.Id = 1;
+            this.barLargeButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.Image")));
+            this.barLargeButtonItem1.Name = "barLargeButtonItem1";
+            this.barLargeButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barLargeButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLargeButtonItem1_ItemClick);
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Caption = "项目配置";
+            this.btnConfig.Id = 3;
+            this.btnConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.ImageOptions.Image")));
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnConfig.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfig_ItemClick);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Caption = "退出";
+            this.btnExit.Id = 2;
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
+            this.btnExit.Name = "btnExit";
+            this.btnExit.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
             // 
             // bar3
             // 
@@ -597,226 +874,6 @@
             this.xtraTabPage2,
             this.xtraTabPage3});
             // 
-            // xtraTabPage3
-            // 
-            this.xtraTabPage3.Controls.Add(this.splitContainer5);
-            this.xtraTabPage3.Enabled = true;
-            this.xtraTabPage3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1228, 654);
-            this.xtraTabPage3.Text = "360检验报告重新上传";
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.groupBox4);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.gridControl3);
-            this.splitContainer5.Size = new System.Drawing.Size(1228, 654);
-            this.splitContainer5.SplitterDistance = 200;
-            this.splitContainer5.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.richTextBox1);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.cmbTestType);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.txtBarcode);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1228, 200);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "更新360报告操作";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.richTextBox2);
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.dateTimePicker2);
-            this.groupBox5.Controls.Add(this.dateTimePicker1);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(523, 7);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(698, 193);
-            this.groupBox5.TabIndex = 8;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "查询360报告状态";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(15, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 29);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "查询";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(218, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 14);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "介于";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(254, 29);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(148, 22);
-            this.dateTimePicker2.TabIndex = 6;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(68, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(147, 22);
-            this.dateTimePicker1.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(70, 98);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 22);
-            this.textBox4.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(67, 61);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(147, 22);
-            this.textBox3.TabIndex = 3;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 14);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "患者号";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 14);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "条码号";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label10.Location = new System.Drawing.Point(2, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 14);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "*检验日期";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(6, 18);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 14);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "本机IP地址";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(79, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(121, 21);
-            this.textBox2.TabIndex = 6;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 94);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(432, 108);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "本工具用于根据条码号更新样本的检验类型信息\n1.提示\\\"条码号不能为空\\\"→ 输入条码号\n2. 提示\\\"请选择检验类型\\\"→ 选择检验类型\n3. 提示\\\"条码号不" +
-    "存在\\\"→ 核对条码号\n4. 提示\\\"慎重操作系统会留取日志\"";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 44);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 14);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "类型单选择";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cmbTestType
-            // 
-            this.cmbTestType.FormattingEnabled = true;
-            this.cmbTestType.Location = new System.Drawing.Point(79, 41);
-            this.cmbTestType.Name = "cmbTestType";
-            this.cmbTestType.Size = new System.Drawing.Size(121, 22);
-            this.cmbTestType.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 14);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "输入条码号";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(288, 70);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "确认";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Location = new System.Drawing.Point(79, 72);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(203, 22);
-            this.txtBarcode.TabIndex = 0;
-            // 
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.splitContainer3);
@@ -995,364 +1052,6 @@
             this.gridBand8.VisibleIndex = 0;
             this.gridBand8.Width = 225;
             // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "质控指标";
-            this.gridBand1.Columns.Add(this.Typename1);
-            this.gridBand1.Columns.Add(this.Typefx1);
-            this.gridBand1.Columns.Add(this.Typemb1);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 1;
-            this.gridBand1.Width = 225;
-            // 
-            // gridBand6
-            // 
-            this.gridBand6.Caption = "监控结果";
-            this.gridBand6.Columns.Add(this.Jan1);
-            this.gridBand6.Columns.Add(this.Feb1);
-            this.gridBand6.Columns.Add(this.Mar1);
-            this.gridBand6.Columns.Add(this.Apr1);
-            this.gridBand6.Columns.Add(this.May1);
-            this.gridBand6.Columns.Add(this.Jun1);
-            this.gridBand6.Columns.Add(this.Jul1);
-            this.gridBand6.Columns.Add(this.Aug1);
-            this.gridBand6.Columns.Add(this.Sep1);
-            this.gridBand6.Columns.Add(this.Oct1);
-            this.gridBand6.Columns.Add(this.Nov1);
-            this.gridBand6.Columns.Add(this.Dec1);
-            this.gridBand6.Name = "gridBand6";
-            this.gridBand6.VisibleIndex = 2;
-            this.gridBand6.Width = 900;
-            // 
-            // gridBand7
-            // 
-            this.gridBand7.Columns.Add(this.Qst1);
-            this.gridBand7.Name = "gridBand7";
-            this.gridBand7.VisibleIndex = 3;
-            this.gridBand7.Width = 75;
-            // 
-            // treeList1
-            // 
-            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeList1.Location = new System.Drawing.Point(0, 0);
-            this.treeList1.Name = "treeList1";
-            this.treeList1.OptionsSelection.MultiSelect = true;
-            this.treeList1.OptionsView.ShowCheckBoxes = true;
-            this.treeList1.Size = new System.Drawing.Size(252, 654);
-            this.treeList1.TabIndex = 0;
-            this.treeList1.TreeLevelWidth = 12;
-            this.treeList1.Visible = false;
-            this.treeList1.BeforeCheckNode += new DevExpress.XtraTreeList.CheckNodeEventHandler(this.treeList1_BeforeCheckNode);
-            this.treeList1.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterCheckNode);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(249, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "确定";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(79, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 21);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "输入条码号";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1228, 61);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "查询条件";
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(1, 24);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.groupBox3);
-            this.splitContainer4.Size = new System.Drawing.Size(1228, 654);
-            this.splitContainer4.SplitterDistance = 409;
-            this.splitContainer4.TabIndex = 15;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
-            this.richTextBox2.ForeColor = System.Drawing.Color.Maroon;
-            this.richTextBox2.Location = new System.Drawing.Point(216, 63);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(422, 114);
-            this.richTextBox2.TabIndex = 9;
-            this.richTextBox2.Text = "建议将查询范围控制在一周以内\n查询范围过大可能导致：\n• 查询速度缓慢\n• 系统卡顿\n• 占用大量内存和CPU资源";
-            // 
-            // TypeID
-            // 
-            this.TypeID.Caption = "指标名称";
-            this.TypeID.FieldName = "TypeID";
-            this.TypeID.Name = "TypeID";
-            this.TypeID.Visible = true;
-            // 
-            // Typename
-            // 
-            this.Typename.AppearanceCell.Options.UseTextOptions = true;
-            this.Typename.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Typename.Caption = "质控指标";
-            this.Typename.FieldName = "Typename";
-            this.Typename.Name = "Typename";
-            this.Typename.Visible = true;
-            // 
-            // Typefx
-            // 
-            this.Typefx.AppearanceCell.Options.UseTextOptions = true;
-            this.Typefx.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Typefx.Caption = "方向";
-            this.Typefx.FieldName = "Typefx";
-            this.Typefx.Name = "Typefx";
-            this.Typefx.Visible = true;
-            this.Typefx.Width = 73;
-            // 
-            // Typemb
-            // 
-            this.Typemb.AppearanceCell.Options.UseTextOptions = true;
-            this.Typemb.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Typemb.Caption = "取值";
-            this.Typemb.FieldName = "Typemb";
-            this.Typemb.Name = "Typemb";
-            this.Typemb.Visible = true;
-            // 
-            // Jan
-            // 
-            this.Jan.AppearanceCell.Options.UseTextOptions = true;
-            this.Jan.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Jan.Caption = "1月";
-            this.Jan.FieldName = "Jan";
-            this.Jan.Name = "Jan";
-            this.Jan.Visible = true;
-            this.Jan.Width = 111;
-            // 
-            // Feb
-            // 
-            this.Feb.Caption = "2月";
-            this.Feb.FieldName = "Feb";
-            this.Feb.Name = "Feb";
-            this.Feb.Visible = true;
-            // 
-            // Mar
-            // 
-            this.Mar.Caption = "3月";
-            this.Mar.FieldName = "Mar";
-            this.Mar.Name = "Mar";
-            this.Mar.Visible = true;
-            // 
-            // Apr
-            // 
-            this.Apr.Caption = "4月";
-            this.Apr.FieldName = "Apr";
-            this.Apr.Name = "Apr";
-            this.Apr.Visible = true;
-            // 
-            // May
-            // 
-            this.May.Caption = "5月";
-            this.May.FieldName = "May";
-            this.May.Name = "May";
-            this.May.Visible = true;
-            // 
-            // Jun
-            // 
-            this.Jun.Caption = "6月";
-            this.Jun.FieldName = "Jun";
-            this.Jun.Name = "Jun";
-            this.Jun.Visible = true;
-            // 
-            // Jul
-            // 
-            this.Jul.Caption = "7月";
-            this.Jul.FieldName = "Jul";
-            this.Jul.Name = "Jul";
-            this.Jul.Visible = true;
-            // 
-            // Aug
-            // 
-            this.Aug.Caption = "8月";
-            this.Aug.FieldName = "Aug";
-            this.Aug.Name = "Aug";
-            this.Aug.Visible = true;
-            // 
-            // Sep
-            // 
-            this.Sep.Caption = "9月";
-            this.Sep.FieldName = "Sep";
-            this.Sep.Name = "Sep";
-            this.Sep.Visible = true;
-            // 
-            // Oct
-            // 
-            this.Oct.Caption = "10月";
-            this.Oct.FieldName = "Oct";
-            this.Oct.Name = "Oct";
-            this.Oct.Visible = true;
-            // 
-            // Nov
-            // 
-            this.Nov.Caption = "11月";
-            this.Nov.FieldName = "Nov";
-            this.Nov.Name = "Nov";
-            this.Nov.Visible = true;
-            // 
-            // Dec
-            // 
-            this.Dec.Caption = "12月";
-            this.Dec.FieldName = "Dec";
-            this.Dec.Name = "Dec";
-            this.Dec.Visible = true;
-            // 
-            // Qst
-            // 
-            this.Qst.Caption = "合计";
-            this.Qst.FieldName = "Qst";
-            this.Qst.Name = "Qst";
-            this.Qst.Visible = true;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "质控指标";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "方向";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "取值";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "1月";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "2月";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "3月";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "4月";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "5月";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "6月";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "7月";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "8月";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "9月";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "10月";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 12;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "11月";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 13;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "12月";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 14;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "趋势图";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 15;
-            // 
             // PatientType
             // 
             this.PatientType.Caption = "患者类型";
@@ -1374,6 +1073,16 @@
             this.typeClass.Name = "typeClass";
             this.typeClass.Visible = true;
             // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "质控指标";
+            this.gridBand1.Columns.Add(this.Typename1);
+            this.gridBand1.Columns.Add(this.Typefx1);
+            this.gridBand1.Columns.Add(this.Typemb1);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 1;
+            this.gridBand1.Width = 225;
+            // 
             // Typename1
             // 
             this.Typename1.Caption = "指标名称";
@@ -1394,6 +1103,25 @@
             this.Typemb1.FieldName = "Typemb";
             this.Typemb1.Name = "Typemb1";
             this.Typemb1.Visible = true;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.Caption = "监控结果";
+            this.gridBand6.Columns.Add(this.Jan1);
+            this.gridBand6.Columns.Add(this.Feb1);
+            this.gridBand6.Columns.Add(this.Mar1);
+            this.gridBand6.Columns.Add(this.Apr1);
+            this.gridBand6.Columns.Add(this.May1);
+            this.gridBand6.Columns.Add(this.Jun1);
+            this.gridBand6.Columns.Add(this.Jul1);
+            this.gridBand6.Columns.Add(this.Aug1);
+            this.gridBand6.Columns.Add(this.Sep1);
+            this.gridBand6.Columns.Add(this.Oct1);
+            this.gridBand6.Columns.Add(this.Nov1);
+            this.gridBand6.Columns.Add(this.Dec1);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.VisibleIndex = 2;
+            this.gridBand6.Width = 900;
             // 
             // Jan1
             // 
@@ -1479,6 +1207,13 @@
             this.Dec1.Name = "Dec1";
             this.Dec1.Visible = true;
             // 
+            // gridBand7
+            // 
+            this.gridBand7.Columns.Add(this.Qst1);
+            this.gridBand7.Name = "gridBand7";
+            this.gridBand7.VisibleIndex = 3;
+            this.gridBand7.Width = 75;
+            // 
             // Qst1
             // 
             this.Qst1.Caption = "趋势图";
@@ -1486,41 +1221,306 @@
             this.Qst1.Name = "Qst1";
             this.Qst1.Visible = true;
             // 
-            // btnQuery
+            // xtraTabPage3
             // 
-            this.btnQuery.Caption = "查询";
-            this.btnQuery.Id = 0;
-            this.btnQuery.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.ImageOptions.Image")));
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnQuery.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuery_ItemClick);
+            this.xtraTabPage3.Controls.Add(this.splitContainer5);
+            this.xtraTabPage3.Enabled = true;
+            this.xtraTabPage3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(1228, 654);
+            this.xtraTabPage3.Text = "360检验报告重新上传";
             // 
-            // barLargeButtonItem1
+            // splitContainer5
             // 
-            this.barLargeButtonItem1.Caption = "导出";
-            this.barLargeButtonItem1.Id = 1;
-            this.barLargeButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.Image")));
-            this.barLargeButtonItem1.Name = "barLargeButtonItem1";
-            this.barLargeButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barLargeButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLargeButtonItem1_ItemClick);
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // btnConfig
+            // splitContainer5.Panel1
             // 
-            this.btnConfig.Caption = "项目配置";
-            this.btnConfig.Id = 3;
-            this.btnConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.ImageOptions.Image")));
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnConfig.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfig_ItemClick);
+            this.splitContainer5.Panel1.Controls.Add(this.groupBox4);
             // 
-            // btnExit
+            // splitContainer5.Panel2
             // 
-            this.btnExit.Caption = "退出";
-            this.btnExit.Id = 2;
-            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Name = "btnExit";
-            this.btnExit.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
+            this.splitContainer5.Panel2.Controls.Add(this.gridControl3);
+            this.splitContainer5.Size = new System.Drawing.Size(1228, 654);
+            this.splitContainer5.SplitterDistance = 200;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.groupBox5);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.richTextBox1);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.cmbTestType);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.txtBarcode);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1228, 200);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "更新360报告操作";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.richTextBox2);
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.dateTimePicker2);
+            this.groupBox5.Controls.Add(this.dateTimePicker1);
+            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Location = new System.Drawing.Point(523, 7);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(698, 202);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "查询360报告状态";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.richTextBox2.ForeColor = System.Drawing.Color.Maroon;
+            this.richTextBox2.Location = new System.Drawing.Point(216, 63);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(422, 114);
+            this.richTextBox2.TabIndex = 9;
+            this.richTextBox2.Text = "建议将查询范围控制在一周以内\n查询范围过大可能导致：\n• 查询速度缓慢\n• 系统卡顿\n• 占用大量内存和CPU资源";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(15, 148);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 29);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "查询";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label13.Location = new System.Drawing.Point(218, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 14);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "介于";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(254, 29);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(148, 22);
+            this.dateTimePicker2.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(68, 30);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(147, 22);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(68, 98);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(144, 22);
+            this.textBox4.TabIndex = 4;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(67, 61);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(147, 22);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 99);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 14);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "患者号";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 14);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "条码号";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label10.Location = new System.Drawing.Point(2, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 14);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "*检验日期";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label9.Location = new System.Drawing.Point(6, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 14);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "本机IP地址";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textBox2.Location = new System.Drawing.Point(79, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(121, 21);
+            this.textBox2.TabIndex = 6;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.richTextBox1.Location = new System.Drawing.Point(0, 92);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(569, 133);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "本工具用于根据条码号更新样本的检验类型信息\n1.提示\\\"条码号不能为空\\\"→ 输入条码号\n2. 提示\\\"请选择检验类型\\\"→ 选择检验类型\n3. 提示\\\"条码号不" +
+    "存在\\\"→ 核对条码号\n4. 提示\\\"慎重操作系统会留取日志\"（WINLIS.SYS_UPDATE_LOG）";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 14);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "类型单选择";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cmbTestType
+            // 
+            this.cmbTestType.FormattingEnabled = true;
+            this.cmbTestType.Location = new System.Drawing.Point(79, 41);
+            this.cmbTestType.Name = "cmbTestType";
+            this.cmbTestType.Size = new System.Drawing.Size(121, 22);
+            this.cmbTestType.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 75);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 14);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "输入条码号";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(288, 72);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "确认";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Location = new System.Drawing.Point(79, 72);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(203, 22);
+            this.txtBarcode.TabIndex = 0;
+            // 
+            // treeList1
+            // 
+            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeList1.Location = new System.Drawing.Point(0, 0);
+            this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsSelection.MultiSelect = true;
+            this.treeList1.OptionsView.ShowCheckBoxes = true;
+            this.treeList1.Size = new System.Drawing.Size(252, 654);
+            this.treeList1.TabIndex = 0;
+            this.treeList1.TreeLevelWidth = 12;
+            this.treeList1.Visible = false;
+            this.treeList1.BeforeCheckNode += new DevExpress.XtraTreeList.CheckNodeEventHandler(this.treeList1_BeforeCheckNode);
+            this.treeList1.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterCheckNode);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(249, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "确定";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(79, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(164, 21);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "输入条码号";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1228, 61);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "查询条件";
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(1, 24);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.groupBox3);
+            this.splitContainer4.Size = new System.Drawing.Size(1228, 654);
+            this.splitContainer4.SplitterDistance = 409;
+            this.splitContainer4.TabIndex = 15;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -1556,14 +1556,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.splitContainer5.Panel1.ResumeLayout(false);
-            this.splitContainer5.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
-            this.splitContainer5.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
@@ -1575,6 +1567,14 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView2)).EndInit();
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

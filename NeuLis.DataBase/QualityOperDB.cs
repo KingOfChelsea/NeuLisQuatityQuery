@@ -956,5 +956,49 @@ select t.emc,
             // 直接返回DataTable
             return OracleHelp.Query(strSql);
         }
+
+        /// <summary>
+        /// 记录更新操作日志到数据库 360重新推送日志
+        /// </summary>
+        /// <param name="logInfo">日志信息对象</param>
+        public void WriteUpdateLog(UpdateLogInfo logInfo)
+        {
+            // 自动填充操作人和IP
+            if (string.IsNullOrEmpty(logInfo.Operator))
+                logInfo.Operator = Environment.UserName;
+
+            //if (string.IsNullOrEmpty(logInfo.IpAddress))
+              //  logInfo.IpAddress = GetClientIP();
+
+            // 转义单引号，防止SQL注入
+            string barcode = logInfo.Barcode.Replace("'", "''");
+            string testType = logInfo.TestType.Replace("'", "''");
+            string operateType = logInfo.OperateType.Replace("'", "''");
+            string operateResult = logInfo.OperateResult.Replace("'", "''");
+            string status = logInfo.Status.Replace("'", "''");
+            string operatorName = logInfo.Operator.Replace("'", "''");
+            string ipAddress = logInfo.IpAddress.Replace("'", "''");
+            string remark = logInfo.Remark.Replace("'", "''");
+
+            // 直接拼接SQL
+            string sql = $@"
+        INSERT INTO WINLIS.SYS_UPDATE_LOG (
+            BARCODE, TEST_TYPE, OPERATE_TYPE, OPERATE_RESULT, 
+            STATUS, OPERATE_TIME, OPERATOR, IP_ADDRESS, REMARK
+        ) VALUES (
+            '{barcode}', '{testType}', '{operateType}', '{operateResult}',
+            '{status}', SYSDATE, '{operatorName}', '{ipAddress}', '{remark}'
+        )";
+
+            try
+            {
+                OracleHelp.ExecuteNonQuery(sql);
+            }
+            catch (Exception ex)
+            {
+                // 日志写入失败不影响主流程，记录到本地日志
+                Log.WriteException(ex, "写入数据库日志失败");
+            }
+        }
     }
-    }
+}
